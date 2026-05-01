@@ -63,6 +63,47 @@ nav{
 }
 .nav-cta:hover{background:var(--accent)!important;color:var(--white)!important}
 
+/* Hamburger */
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:8px;
+  z-index:101;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;
+  background:var(--ink);border-radius:2px;
+  transition:transform 0.3s,opacity 0.3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile drawer */
+.mobile-menu{
+  display:none;
+  position:fixed;top:64px;left:0;right:0;bottom:0;
+  background:rgba(247,245,240,0.97);
+  backdrop-filter:blur(20px);
+  z-index:99;
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:2.5rem;
+  opacity:0;transform:translateY(-12px);
+  transition:opacity 0.3s,transform 0.3s;
+}
+.mobile-menu.open{display:flex;opacity:1;transform:translateY(0)}
+.mobile-menu a{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.5rem;letter-spacing:0.06em;
+  color:var(--ink);text-decoration:none;
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--accent)}
+.mobile-menu a.nav-cta-m{
+  background:var(--ink);color:var(--white)!important;
+  padding:12px 40px;border-radius:100px;
+  font-size:1.5rem;
+}
+
 /* ── HERO ── */
 .hero{
   min-height:100vh;
@@ -72,8 +113,6 @@ nav{
   position:relative;
   overflow:hidden;
 }
-
-/* Subtle background pattern */
 .hero::before{
   content:'';
   position:absolute;inset:0;
@@ -82,7 +121,6 @@ nav{
     radial-gradient(circle at 20% 80%, rgba(11,107,93,0.04) 0%, transparent 40%);
   pointer-events:none;
 }
-
 .hero-left{
   display:flex;flex-direction:column;justify-content:center;
   padding:5rem 3rem 5rem 3rem;
@@ -96,7 +134,6 @@ nav{
   margin-bottom:2.5rem;
 }
 .hero-tag::before{content:'';width:20px;height:1px;background:var(--accent)}
-
 .hero-name{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(5rem,8vw,9rem);
@@ -106,7 +143,6 @@ nav{
   margin-bottom:2.5rem;
 }
 .hero-name .accent-line{color:var(--accent);display:block}
-
 .hero-desc{
   font-size:17px;line-height:1.85;
   color:var(--ink2);
@@ -135,6 +171,18 @@ nav{
 }
 .btn-stroke:hover{border-color:var(--ink);transform:translateY(-2px)}
 
+/* CV Download button */
+.btn-cv{
+  background:var(--accent-light);color:var(--accent);
+  border:1.5px solid rgba(193,64,10,0.2);
+  padding:14px 32px;border-radius:100px;
+  font-size:13px;font-weight:500;letter-spacing:0.05em;
+  text-decoration:none;
+  transition:background 0.2s,transform 0.15s,border-color 0.2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-cv:hover{background:var(--accent);color:var(--white);border-color:var(--accent);transform:translateY(-2px)}
+
 /* Hero right — stats */
 .hero-right{
   display:flex;flex-direction:column;
@@ -162,7 +210,6 @@ nav{
 .stat-num.hi{color:var(--accent)}
 .stat-label{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:3px}
 .stat-sub{font-size:12px;color:var(--ink3)}
-
 .hero-tags{
   padding:2rem 3rem;
   border-top:1px solid var(--border2);
@@ -208,7 +255,6 @@ nav{
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:6rem;align-items:start;position:relative;z-index:1}
 .about-text p{font-size:16px;line-height:1.85;color:var(--ink2);margin-bottom:1.25rem}
 .about-text strong{color:var(--ink);font-weight:600}
-
 .edu-list{margin-top:0}
 .edu-row{
   display:flex;gap:1.25rem;align-items:flex-start;
@@ -228,7 +274,6 @@ nav{
   background:var(--bg2);color:var(--ink2);
   padding:3px 12px;border-radius:100px;
 }
-
 .award-card{
   margin-top:1.5rem;
   background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
@@ -306,7 +351,6 @@ nav{
 .ptag-ml{background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,0.15)}
 .ptag-sec{background:var(--accent-light);color:var(--accent);border:1px solid rgba(193,64,10,0.15)}
 .ptag-sys{background:var(--bg2);color:var(--ink2);border:1px solid var(--border)}
-
 .feat-body h3{
   font-family:'Instrument Serif',serif;
   font-size:1.75rem;color:var(--ink);line-height:1.2;margin-bottom:0.75rem;
@@ -325,6 +369,49 @@ nav{
 }
 .plink:hover{gap:12px}
 .plink::after{content:'→'}
+
+/* SmishGuard demo screenshots */
+.smish-screenshots{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  margin-bottom:1.5rem;
+}
+.smish-thumb{
+  border-radius:10px;overflow:hidden;
+  border:1px solid var(--border2);
+  cursor:pointer;
+  position:relative;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.smish-thumb:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(28,26,22,0.12)}
+.smish-thumb img{width:100%;display:block;height:90px;object-fit:cover;object-position:top}
+.smish-thumb-overlay{
+  position:absolute;inset:0;
+  background:rgba(91,33,182,0.0);
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.smish-thumb:hover .smish-thumb-overlay{background:rgba(91,33,182,0.55)}
+.smish-thumb-overlay span{
+  font-size:11px;font-weight:500;color:white;
+  opacity:0;transition:opacity 0.2s;
+  letter-spacing:0.06em;
+}
+.smish-thumb:hover .smish-thumb-overlay span{opacity:1}
+
+.demo-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.75rem}
+.demo-btn{
+  font-size:12px;font-weight:500;letter-spacing:0.04em;
+  padding:8px 18px;border-radius:100px;
+  text-decoration:none;cursor:pointer;border:none;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:transform 0.15s,background 0.2s;
+}
+.demo-btn:hover{transform:translateY(-1px)}
+.demo-btn-poster{
+  background:#EDE9FE;color:#5B21B6;
+  border:1px solid rgba(91,33,182,0.2);
+}
+.demo-btn-poster:hover{background:#5B21B6;color:white}
 
 /* Card grid */
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
@@ -399,9 +486,23 @@ nav{
   background:var(--bg);border-radius:14px;
   padding:1.25rem 1.5rem;
   border-left:3px solid var(--accent);
+  transition:box-shadow 0.2s,transform 0.2s;
 }
+.cert:hover{box-shadow:0 4px 16px rgba(28,26,22,0.08);transform:translateY(-2px)}
 .cert h5{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:6px}
-.cert span{font-size:12px;color:var(--ink3);font-family:'Geist',monospace}
+.cert span{font-size:12px;color:var(--ink3);font-family:'Geist',monospace;display:block;margin-bottom:10px}
+.cert-link{
+  font-size:11px;font-weight:500;color:var(--accent);
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:5px;
+  letter-spacing:0.04em;
+  border:1px solid rgba(193,64,10,0.2);
+  background:var(--accent-light);
+  padding:3px 10px;border-radius:100px;
+  transition:background 0.2s,color 0.2s;
+}
+.cert-link:hover{background:var(--accent);color:white}
+.cert-link svg{width:10px;height:10px}
 
 /* ── TRAINING ── */
 .training{background:var(--bg);padding:7rem 3rem}
@@ -432,7 +533,6 @@ nav{
 }
 .training-card h4{font-size:13px;color:var(--ink3);margin-bottom:0.75rem}
 .training-card p{font-size:14px;line-height:1.75;color:var(--ink2)}
-
 .events-row{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:1rem;margin-top:1.5rem;
@@ -486,6 +586,96 @@ footer{
 }
 footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:uppercase}
 
+/* ── LIGHTBOX / MODAL ── */
+.lightbox{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:rgba(28,26,22,0.92);
+  backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  padding:2rem;
+}
+.lightbox.open{display:flex}
+.lightbox-inner{
+  position:relative;
+  max-width:900px;width:100%;
+  max-height:90vh;
+  background:var(--white);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,0.35);
+}
+.lightbox-close{
+  position:absolute;top:1rem;right:1rem;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(28,26,22,0.08);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--ink);
+  transition:background 0.2s;
+}
+.lightbox-close:hover{background:rgba(28,26,22,0.18)}
+.lightbox-img{
+  width:100%;max-height:85vh;
+  object-fit:contain;display:block;
+}
+.lightbox-caption{
+  padding:1rem 1.5rem;
+  font-size:13px;color:var(--ink2);
+  border-top:1px solid var(--border2);
+  background:var(--bg);
+}
+
+/* PDF Modal */
+.pdf-modal{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:rgba(28,26,22,0.92);
+  backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  padding:2rem;
+}
+.pdf-modal.open{display:flex}
+.pdf-modal-inner{
+  position:relative;
+  max-width:960px;width:100%;
+  height:90vh;
+  background:var(--white);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,0.35);
+  display:flex;flex-direction:column;
+}
+.pdf-modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;
+  border-bottom:1px solid var(--border2);
+  flex-shrink:0;
+}
+.pdf-modal-header h4{font-size:14px;font-weight:500;color:var(--ink)}
+.pdf-modal-header .pdf-actions{display:flex;gap:8px;align-items:center}
+.pdf-modal iframe{flex:1;border:none;width:100%}
+.modal-close{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(28,26,22,0.08);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--ink);
+  transition:background 0.2s;
+}
+.modal-close:hover{background:rgba(28,26,22,0.18)}
+
+/* Screenshot nav */
+.lightbox-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(28,26,22,0.08);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--ink);
+  transition:background 0.2s;z-index:5;
+}
+.lightbox-nav:hover{background:rgba(28,26,22,0.18)}
+.lightbox-nav.prev{left:1rem}
+.lightbox-nav.next{right:1rem}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
@@ -499,6 +689,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 @media(max-width:768px){
   nav{padding:0 1.5rem}
   .nav-links{display:none}
+  .hamburger{display:flex}
   .hero-left{padding:4rem 1.5rem}
   .hero-stats,.hero-tags{padding:2rem 1.5rem}
   .about,.projects,.skills,.training,.contact{padding:5rem 1.5rem}
@@ -507,6 +698,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
   .events-row{grid-template-columns:1fr}
   .projects-top{flex-direction:column;align-items:flex-start;gap:0}
   footer{flex-direction:column;gap:0.5rem;text-align:center}
+  .smish-screenshots{grid-template-columns:1fr 1fr}
 }
 
 /* ── FADE IN on scroll ── */
@@ -526,7 +718,19 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
     <li><a href="#training">Training</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#training" class="mobile-link">Training</a>
+  <a href="#contact" class="nav-cta-m mobile-link">Contact</a>
+</div>
 
 <!-- ── HERO ── -->
 <div class="hero">
@@ -541,6 +745,10 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
     </p>
     <div class="hero-btns">
       <a href="#projects" class="btn-fill">View Projects</a>
+      <a href="AthirAlAbri-CV.pdf" download class="btn-cv">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
       <a href="#contact" class="btn-stroke">Get in Touch</a>
     </div>
   </div>
@@ -571,7 +779,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
       <div class="stat-row">
         <div class="stat-num hi">99.5<small style="font-size:1.5rem">%</small></div>
         <div>
-          <div class="stat-label">SmishGuard Accuracy</div>
+          <div class="stat-label">SmishGard Accuracy</div>
           <div class="stat-sub">Final Year Project · DistilBERT</div>
         </div>
       </div>
@@ -600,7 +808,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
         I'm a <strong>Cybersecurity &amp; Network Infrastructure graduate</strong> from Sultan Qaboos University with practical training in penetration testing, network security, digital forensics, and incident response.
       </p>
       <p>
-        For my final-year project, I built <strong>SmishGuard</strong> — an AI-powered tool that detects SMS phishing (smishing) attacks with 99.5% accuracy. It uses a fine-tuned DistilBERT model, explains its decisions using LIME, and scans suspicious links in real time via the VirusTotal API. It supports both Arabic and English.
+        For my final-year project, I built <strong>SmishGard</strong> — an AI-powered tool that detects SMS phishing (smishing) attacks with 99.5% accuracy. It uses a fine-tuned DistilBERT model, explains its decisions using LIME, and scans suspicious links in real time via the VirusTotal API. It supports both Arabic and English.
       </p>
       <p>
         I also have a side project, <strong>Bayyin (بيّن)</strong>, an Arabic science learning platform for Omani school students — built out of personal interest in making education more interactive.
@@ -647,11 +855,11 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
       <div class="proj-counter">04</div>
     </div>
 
+    <!-- SmishGard -->
     <div class="feat reveal">
       <div class="feat-visual" style="background:linear-gradient(145deg,#0D1527 0%,#1A1040 100%);">
         <div style="position:relative;z-index:1;text-align:center;">
-          <div style="font-size:4rem;margin-bottom:0.5rem;">🛡️</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.06em;color:white;line-height:1;">SmishGuard</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.06em;color:white;line-height:1;">SmishGard</div>
           <div style="font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:0.5rem;">Final Year Project · SQU 2026</div>
           <div class="feat-pills" style="justify-content:center;margin-top:1.5rem;">
             <span class="feat-pill">99.5% Accuracy</span>
@@ -663,9 +871,33 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
       </div>
       <div class="feat-body">
         <span class="ptag ptag-ml">Final Year Project · Cybersecurity &amp; ML</span>
-        <h3>SmishGuard — SMS Phishing Detection</h3>
-        <p>SmishGuard detects smishing (SMS phishing) attacks using a fine-tuned DistilBERT model trained on over 8,000 SMS messages. It achieved <strong style="color:var(--ink)">99.5% accuracy</strong>, outperforming five other ML models including CNN-LSTM and XGBoost.</p>
+        <h3>SmishGard — SMS Phishing Detection</h3>
+        <p>SmishGard detects smishing (SMS phishing) attacks using a fine-tuned DistilBERT model trained on over 8,000 SMS messages. It achieved <strong style="color:var(--ink)">99.5% accuracy</strong>, outperforming five other ML models including CNN-LSTM and XGBoost.</p>
         <p>It explains every decision using <strong style="color:var(--ink)">LIME</strong> — highlighting exactly which words triggered the detection — and cross-checks embedded links against the <strong style="color:var(--ink)">VirusTotal API</strong> in real time. Supports both Arabic and English messages.</p>
+
+        <!-- Screenshot thumbnails -->
+        <div class="smish-screenshots">
+          <div class="smish-thumb" onclick="openLightbox(0)" title="View screenshot">
+            <img src="SmishGuard-poster.pdf#page=2" alt="SmishGard Input UI" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A1040,#2D1B69)';this.style.display='none';this.parentElement.querySelector('.smish-thumb-overlay').innerHTML='<span style=\'opacity:1;font-size:13px\'>📱 Input Screen</span>'">
+            <div class="smish-thumb-overlay"><span>🔍 View Screenshot</span></div>
+          </div>
+          <div class="smish-thumb" onclick="openLightbox(1)" title="View results">
+            <img src="SmishGuard-poster.pdf#page=3" alt="SmishGard Results" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A0A0A,#4A1010)';this.style.display='none';this.parentElement.querySelector('.smish-thumb-overlay').innerHTML='<span style=\'opacity:1;font-size:13px\'>⚠️ Results Screen</span>'">
+            <div class="smish-thumb-overlay"><span>⚠️ Detection Results</span></div>
+          </div>
+        </div>
+
+        <div class="demo-btns">
+          <button class="demo-btn demo-btn-poster" onclick="openPdfModal()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Research Poster
+          </button>
+          <a href="SmishGuard-poster.pdf" download class="demo-btn" style="background:var(--bg2);color:var(--ink2);border:1px solid var(--border);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Poster
+          </a>
+        </div>
+
         <p style="font-size:13px;color:var(--ink3)">Deployed as a Flask web app. 75% of user testers rated it "Excellent."</p>
         <div class="chips">
           <span class="chip">Python</span>
@@ -678,7 +910,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
       </div>
     </div>
 
-    <!-- Bayyin — second featured, slightly smaller -->
+    <!-- Bayyin -->
     <div class="feat reveal" style="margin-bottom:1.5rem;">
       <div class="feat-visual" style="background:linear-gradient(145deg,#0D1B2A 0%,#0B3D35 100%);">
         <div style="position:relative;z-index:1;text-align:center;">
@@ -774,11 +1006,46 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 
     <div class="certs-h reveal">Certifications</div>
     <div class="certs-grid reveal">
-      <div class="cert"><h5>Web Application Security Testing with OWASP ZAP</h5><span>Coursera · Apr 2025</span></div>
-      <div class="cert"><h5>Metasploit for Beginners: Ethical Penetration Testing</h5><span>Coursera · Mar 2025</span></div>
-      <div class="cert"><h5>Wireshark for Packet Capture: Analyze Web Traffic</h5><span>Coursera · Mar 2025</span></div>
-      <div class="cert"><h5>VPN Tunneling with OpenVPN: Secure Network Connections</h5><span>Coursera · Dec 2024</span></div>
-      <div class="cert"><h5>Decryption with Python</h5><span>Coursera · Oct 2024</span></div>
+      <div class="cert">
+        <h5>Web Application Security Testing with OWASP ZAP</h5>
+        <span>Coursera · Apr 2025</span>
+        <a href="https://coursera.org/share/061e07ec6d3bded1eb99d7506872ada4" target="_blank" class="cert-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
+      </div>
+      <div class="cert">
+        <h5>Metasploit for Beginners: Ethical Penetration Testing</h5>
+        <span>Coursera · Mar 2025</span>
+        <a href="https://coursera.org/share/755675e3c82b0240d1aedf71e5592445" target="_blank" class="cert-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
+      </div>
+      <div class="cert">
+        <h5>Wireshark for Packet Capture: Analyze Web Traffic</h5>
+        <span>Coursera · Mar 2025</span>
+        <a href="https://coursera.org/share/a909c9ceb07762f36a3f23b6f552a9a6" target="_blank" class="cert-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
+      </div>
+      <div class="cert">
+        <h5>VPN Tunneling with OpenVPN: Secure Network Connections</h5>
+        <span>Coursera · Dec 2024</span>
+        <a href="https://coursera.org/share/4ec095c63d332e3b59f06602c1c8f23b" target="_blank" class="cert-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
+      </div>
+      <div class="cert">
+        <h5>Decryption with Python</h5>
+        <span>Coursera · Oct 2024</span>
+        <a href="https://coursera.org/share/7a14465e79315f49cadbe9e7aa5e9e3a" target="_blank" class="cert-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -843,12 +1110,107 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
   <p>© 2026</p>
 </footer>
 
+<!-- ── PDF MODAL (Research Poster) ── -->
+<div class="pdf-modal" id="pdfModal">
+  <div class="pdf-modal-inner">
+    <div class="pdf-modal-header">
+      <h4>📄 SmishGard — Research Poster</h4>
+      <div class="pdf-actions">
+        <a href="SmishGuard-poster.pdf" download class="demo-btn" style="background:var(--accent-light);color:var(--accent);border:1px solid rgba(193,64,10,0.2);font-size:12px;padding:6px 14px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <button class="modal-close" onclick="closePdfModal()">×</button>
+      </div>
+    </div>
+    <iframe src="SmishGuard-poster.pdf" title="SmishGard Research Poster"></iframe>
+  </div>
+</div>
+
+<!-- ── LIGHTBOX (Screenshots) ── -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-nav prev" onclick="changeLightbox(-1)">‹</button>
+    <button class="lightbox-nav next" onclick="changeLightbox(1)">›</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
 <script>
-// Scroll reveal
+// ── Hamburger Menu ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── Scroll Reveal ──
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
 }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── PDF Modal ──
+function openPdfModal() {
+  document.getElementById('pdfModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePdfModal() {
+  document.getElementById('pdfModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('pdfModal').addEventListener('click', function(e) {
+  if(e.target === this) closePdfModal();
+});
+
+// ── Screenshot Lightbox ──
+const screenshots = [
+  { src: 'SmishGuard-poster.pdf#page=2', caption: 'SmishGard — AI Analysis input screen with quick example presets (Bank Alert, Package Delivery, Account Verification)' },
+  { src: 'SmishGuard-poster.pdf#page=3', caption: 'SmishGard — Detection results: color-coded verdict, LIME explanation, and VirusTotal URL verification' },
+  { src: 'SmishGuard-poster.pdf#page=4', caption: 'SmishGard — Analysis breakdown showing flagged URL and VirusTotal scan results' },
+  { src: 'SmishGuard-poster.pdf#page=5', caption: 'SmishGard — Safety recommendations and do\'s & don\'ts for users' },
+];
+let currentIdx = 0;
+
+function openLightbox(idx) {
+  currentIdx = idx;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function changeLightbox(dir) {
+  currentIdx = (currentIdx + dir + screenshots.length) % screenshots.length;
+  updateLightbox();
+}
+function updateLightbox() {
+  document.getElementById('lightboxImg').src = screenshots[currentIdx].src;
+  document.getElementById('lightboxCaption').textContent = screenshots[currentIdx].caption;
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if(e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') { closeLightbox(); closePdfModal(); }
+  if(e.key === 'ArrowLeft') changeLightbox(-1);
+  if(e.key === 'ArrowRight') changeLightbox(1);
+});
 </script>
 </body>
 </html>
