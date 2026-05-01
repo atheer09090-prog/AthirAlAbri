@@ -327,7 +327,7 @@ nav{
 .plink::after{content:'→'}
 
 /* Card grid */
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .pcard{
   background:var(--white);
   border:1px solid var(--border2);
@@ -678,6 +678,37 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
       </div>
     </div>
 
+    <!-- Bayyin — second featured, slightly smaller -->
+    <div class="feat reveal" style="margin-bottom:1.5rem;">
+      <div class="feat-visual" style="background:linear-gradient(145deg,#0D1B2A 0%,#0B3D35 100%);">
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;background:linear-gradient(135deg,#5ECFC6,#2BA89D);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">بيّن</div>
+          <div style="font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:0.5rem;">bayyin-six.vercel.app</div>
+          <div class="feat-pills" style="justify-content:center;margin-top:1.25rem;">
+            <span class="feat-pill">Physics</span>
+            <span class="feat-pill">Chemistry</span>
+            <span class="feat-pill">Biology</span>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(11,107,93,0.35) 0%,transparent 65%);"></div>
+      </div>
+      <div class="feat-body">
+        <span class="ptag ptag-teal">Personal Project · Arabic EdTech</span>
+        <h3>Bayyin — Interactive Science Platform</h3>
+        <p>An Arabic-first interactive science simulation platform built for Omani school students in Grades 5–9. Features 30+ Canvas-based simulations covering physics, chemistry, biology, and ecology — all aligned to the Omani national curriculum and fully in RTL Arabic.</p>
+        <p style="font-size:13px;color:var(--ink3)">Includes a quiz engine, real-time data visualisation, dark mode, subscription system via Lemon Squeezy, and Supabase backend.</p>
+        <div class="chips">
+          <span class="chip">JavaScript</span>
+          <span class="chip">Canvas API</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">Arabic RTL</span>
+          <span class="chip">Lemon Squeezy</span>
+        </div>
+        <a href="https://bayyin-six.vercel.app" target="_blank" class="plink">Visit Platform</a>
+      </div>
+    </div>
+
+    <!-- Smaller cards -->
     <div class="pgrid">
       <div class="pcard reveal">
         <div class="pcard-top">
@@ -699,18 +730,6 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
           <h3>Distributed Systems &amp; C Programming</h3>
           <p>Built a Java RMI-based distributed system alongside low-level network programming in C and Bash — covering sockets, process management, and inter-process communication.</p>
           <div class="chips"><span class="chip">Java RMI</span><span class="chip">C</span><span class="chip">Bash</span><span class="chip">Linux</span></div>
-        </div>
-      </div>
-      <div class="pcard reveal">
-        <div class="pcard-top">
-          <span class="ptag ptag-teal" style="margin:0">Side Project · EdTech</span>
-          <span class="pcard-num">03</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Bayyin (بيّن)</h3>
-          <p>An Arabic-first interactive science simulation platform for Omani school students (Grades 5–9). Built independently with 30+ Canvas-based simulations aligned to the national curriculum.</p>
-          <div class="chips"><span class="chip">JavaScript</span><span class="chip">Supabase</span><span class="chip">Canvas API</span><span class="chip">Arabic RTL</span></div>
-          <a href="https://bayyin-six.vercel.app" target="_blank" class="plink" style="margin-top:0.75rem;display:inline-flex">Visit Platform</a>
         </div>
       </div>
     </div>
