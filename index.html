@@ -721,42 +721,7 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
   transition:all 0.2s;
 }
 .modal-close:hover{background:var(--surface3);color:var(--text)}
-/* ── LIGHTBOX ── */
-.lightbox{
-  display:none;position:fixed;inset:0;z-index:200;
-  background:rgba(248,247,252,0.94);backdrop-filter:blur(16px);
-  align-items:center;justify-content:center;padding:2rem;
-}
-.lightbox.open{display:flex}
-.lightbox-inner{
-  position:relative;max-width:900px;width:100%;max-height:90vh;
-  background:var(--bg2);border-radius:18px;overflow:hidden;
-  box-shadow:0 40px 100px rgba(100,80,160,0.15);border:1px solid var(--border);
-}
-.lightbox-close{
-  position:absolute;top:1rem;right:1rem;z-index:10;
-  width:32px;height:32px;border-radius:50%;
-  background:rgba(100,80,160,0.07);border:1px solid var(--border);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;color:var(--text2);transition:all 0.2s;
-}
-.lightbox-close:hover{background:rgba(100,80,160,0.13);color:var(--text)}
-.lightbox-nav{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(100,80,160,0.07);border:1px solid var(--border);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;color:var(--text);z-index:5;transition:all 0.2s;
-}
-.lightbox-nav:hover{background:rgba(100,80,160,0.13)}
-.lightbox-nav.prev{left:1rem}
-.lightbox-nav.next{right:1rem}
-.lightbox-img{width:100%;max-height:80vh;object-fit:contain;display:block}
-.lightbox-caption{
-  padding:1rem 1.5rem;font-size:11px;color:var(--text3);
-  font-family:'JetBrains Mono',monospace;
-  border-top:1px solid var(--border2);background:var(--bg3);
-}
+
 
 /* ── REVEAL ANIMATION ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
@@ -774,24 +739,50 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
 .smish-shots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.25rem}
 .smish-thumb{
   border-radius:10px;overflow:hidden;border:1px solid var(--border);
-  cursor:pointer;position:relative;height:90px;
-  background:linear-gradient(135deg,#EEE8FF,#E8E0FF);
+  cursor:pointer;position:relative;height:110px;
+  background:linear-gradient(135deg,#F0ECFF,#EAE5FA);
   display:flex;align-items:center;justify-content:center;
-  transition:border-color 0.2s,transform 0.2s;
+  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
 }
-.smish-thumb:hover{border-color:var(--border3);transform:scale(1.02)}
-.smish-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.smish-thumb:hover{border-color:var(--border3);transform:scale(1.02);box-shadow:0 4px 16px rgba(124,92,191,0.12)}
+.smish-preview{
+  width:80%;display:flex;flex-direction:column;gap:5px;padding:8px 0;
+}
+.sp-bar{
+  height:6px;border-radius:3px;
+  background:rgba(124,92,191,0.15);
+}
+.sp-input{
+  height:18px;border-radius:5px;
+  border:1px solid rgba(124,92,191,0.2);
+  background:rgba(255,255,255,0.6);
+  display:flex;align-items:center;padding:0 6px;
+}
+.sp-input-line{width:60%;height:3px;background:rgba(124,92,191,0.2);border-radius:2px}
+.sp-alert{display:flex;align-items:center;gap:6px;background:rgba(200,60,60,0.06);border-radius:5px;padding:4px 6px}
+.sp-alert-icon{font-size:10px;color:rgba(200,60,60,0.6)}
+.sp-lime{display:flex;gap:4px;flex-wrap:wrap}
+.sp-lime-word{font-size:8px;padding:2px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace}
+.sp-red{background:rgba(200,60,60,0.12);color:rgba(180,40,40,0.7)}
+.sp-green{background:rgba(40,160,80,0.1);color:rgba(30,130,60,0.7)}
+.sp-lime-word:not(.sp-red):not(.sp-green){background:rgba(124,92,191,0.08);color:rgba(100,70,170,0.6)}
 .smish-thumb-ov{
   position:absolute;inset:0;background:rgba(124,92,191,0);
   display:flex;align-items:center;justify-content:center;
   transition:background 0.2s;
 }
-.smish-thumb:hover .smish-thumb-ov{background:rgba(100,60,180,0.55)}
+.smish-thumb:hover .smish-thumb-ov{background:rgba(80,50,160,0.6)}
 .smish-thumb-ov span{
   font-size:10px;color:white;font-family:'JetBrains Mono',monospace;
   opacity:0;transition:opacity 0.2s;letter-spacing:0.06em;
+  display:flex;align-items:center;
 }
 .smish-thumb:hover .smish-thumb-ov span{opacity:1}
+.smish-label{
+  position:absolute;bottom:6px;left:8px;
+  font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;
+  letter-spacing:0.04em;
+}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
@@ -982,13 +973,46 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <p>SmishGard detects smishing (SMS phishing) attacks using a fine-tuned DistilBERT model trained on over 8,000 SMS messages. It achieved <strong>99.5% accuracy</strong>, outperforming five other ML models including CNN-LSTM and XGBoost.</p>
         <p>Every decision is explained using <strong>LIME</strong> — highlighting exactly which words triggered the detection — and cross-checks embedded links against the <strong>VirusTotal API</strong> in real time. Supports Arabic and English.</p>
         <div class="smish-shots">
-          <div class="smish-thumb" onclick="openLightbox(0)">
-            <img src="SmishGuard-poster.pdf#page=2" alt="SmishGard Input UI" onerror="this.style.display='none'">
-            <div class="smish-thumb-ov"><span>↗ Input Screen</span></div>
+          <div class="smish-thumb" onclick="openPdfModal()">
+            <div class="smish-preview">
+              <div class="sp-bar" style="width:70%"></div>
+              <div class="sp-bar" style="width:90%"></div>
+              <div class="sp-input">
+                <div class="sp-input-line"></div>
+              </div>
+              <div class="sp-bar" style="width:55%"></div>
+              <div class="sp-bar" style="width:80%"></div>
+            </div>
+            <div class="smish-thumb-ov">
+              <span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;margin-right:4px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Poster
+              </span>
+            </div>
+            <div class="smish-label">📱 Input Screen</div>
           </div>
-          <div class="smish-thumb" onclick="openLightbox(1)">
-            <img src="SmishGuard-poster.pdf#page=3" alt="SmishGard Results" onerror="this.style.display='none'">
-            <div class="smish-thumb-ov"><span>↗ Results</span></div>
+          <div class="smish-thumb" onclick="openPdfModal()">
+            <div class="smish-preview">
+              <div class="sp-alert">
+                <div class="sp-alert-icon">⚠</div>
+                <div style="flex:1"><div class="sp-bar" style="width:80%;background:rgba(180,60,60,0.25)"></div><div class="sp-bar" style="width:55%;background:rgba(180,60,60,0.15)"></div></div>
+              </div>
+              <div class="sp-bar" style="width:90%"></div>
+              <div class="sp-lime">
+                <div class="sp-lime-word sp-red">urgent</div>
+                <div class="sp-lime-word sp-red">bank</div>
+                <div class="sp-lime-word">click</div>
+                <div class="sp-lime-word sp-green">hello</div>
+              </div>
+              <div class="sp-bar" style="width:65%"></div>
+            </div>
+            <div class="smish-thumb-ov">
+              <span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;margin-right:4px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Poster
+              </span>
+            </div>
+            <div class="smish-label">⚠️ Detection Results</div>
           </div>
         </div>
         <div class="demo-btns">
@@ -1247,16 +1271,7 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
   </div>
 </div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" onclick="closeLightbox()">×</button>
-    <button class="lightbox-nav prev" onclick="changeLightbox(-1)">‹</button>
-    <button class="lightbox-nav next" onclick="changeLightbox(1)">›</button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="">
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
-</div>
+
 
 <script>
 /* ── Custom Cursor ── */
@@ -1315,26 +1330,9 @@ function openPdfModal(){document.getElementById('pdfModal').classList.add('open'
 function closePdfModal(){document.getElementById('pdfModal').classList.remove('open');document.body.style.overflow=''}
 document.getElementById('pdfModal').addEventListener('click',function(e){if(e.target===this)closePdfModal()});
 
-/* ── Lightbox ── */
-const screenshots=[
-  {src:'SmishGuard-poster.pdf#page=2',caption:'SmishGard — AI Analysis input screen with quick example presets'},
-  {src:'SmishGuard-poster.pdf#page=3',caption:'SmishGard — Detection results: color-coded verdict, LIME explanation, and VirusTotal URL verification'},
-  {src:'SmishGuard-poster.pdf#page=4',caption:'SmishGard — Analysis breakdown with flagged URL and VirusTotal scan results'},
-  {src:'SmishGuard-poster.pdf#page=5',caption:'SmishGard — Safety recommendations for users'},
-];
-let curIdx=0;
-function openLightbox(i){curIdx=i;updateLightbox();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
-function changeLightbox(d){curIdx=(curIdx+d+screenshots.length)%screenshots.length;updateLightbox()}
-function updateLightbox(){
-  document.getElementById('lightboxImg').src=screenshots[curIdx].src;
-  document.getElementById('lightboxCaption').textContent=screenshots[curIdx].caption;
-}
-document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
+document.getElementById('lightbox') && document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeLightbox();closePdfModal()}
-  if(e.key==='ArrowLeft')changeLightbox(-1);
-  if(e.key==='ArrowRight')changeLightbox(1);
+  if(e.key==='Escape'){closePdfModal()}
 });
 </script>
 </body>
