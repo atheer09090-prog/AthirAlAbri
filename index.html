@@ -603,6 +603,17 @@ nav{
 }
 .cert-link:hover{background:var(--a-glow);color:var(--silver);border-color:var(--border3)}
 .cert-link svg{width:10px;height:10px}
+.cert-dl-link{
+  font-size:10px;color:var(--text3);text-decoration:none;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;
+  display:inline-flex;align-items:center;gap:5px;
+  border:1px solid var(--border);
+  background:transparent;padding:3px 10px;border-radius:var(--radius-pill);
+  transition:all 0.2s;
+}
+.cert-dl-link:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
+.cert-dl-link svg{width:10px;height:10px}
+.cert-btns{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap}
 
 /* ── RECOMMENDATIONS ── */
 .recs{background:var(--bg1);padding:9rem 3.5rem}
@@ -686,14 +697,24 @@ nav{
 .e-card h5{font-size:13px;font-weight:500;color:var(--text);margin-bottom:5px}
 .e-card p{font-size:12px;color:var(--text3);line-height:1.5}
 .e-cert-link{
-  display:inline-flex;align-items:center;gap:5px;margin-top:10px;
-  font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;
-  color:var(--a2);text-decoration:none;
+  font-size:10px;color:var(--a2);text-decoration:none;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;
+  display:inline-flex;align-items:center;gap:5px;
   border:1px solid rgba(196,168,255,0.18);background:var(--a-dim);
   padding:3px 10px;border-radius:var(--radius-pill);transition:all 0.2s;
 }
 .e-cert-link:hover{background:var(--a-glow);color:var(--silver);border-color:var(--border3)}
 .e-cert-link svg{width:10px;height:10px}
+.e-cert-dl{
+  font-size:10px;color:var(--text3);text-decoration:none;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;
+  display:inline-flex;align-items:center;gap:5px;
+  border:1px solid var(--border);background:transparent;
+  padding:3px 10px;border-radius:var(--radius-pill);transition:all 0.2s;
+}
+.e-cert-dl:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
+.e-cert-dl svg{width:10px;height:10px}
+.e-cert-btns{display:inline-flex;gap:6px;align-items:center;margin-top:10px;flex-wrap:wrap}
 
 /* ── CONTACT ── */
 .contact{
@@ -987,10 +1008,16 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <div>
           <h4>Dean's List Achievement</h4>
           <p>SQU College of Sciences — Fall 2024, Spring 2025 &amp; Fall 2025</p>
-          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/academic-excellence.pdf" target="_blank" class="cert-link" style="margin-top:0.6rem;display:inline-flex">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Certificate
-          </a>
+          <div class="cert-btns" style="margin-top:0.6rem">
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/academic-excellence.pdf" target="_blank" class="cert-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              View
+            </a>
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/academic-excellence.pdf" download class="cert-dl-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1015,10 +1042,16 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         </div>
         <div class="rec-footer">
           <span class="rec-course">Computer Networks</span>
-          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-shadha.pdf" target="_blank" class="cert-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Letter
-          </a>
+          <div class="cert-btns">
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-shadha.pdf" target="_blank" class="cert-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              View
+            </a>
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-shadha.pdf" download class="cert-dl-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1033,10 +1066,16 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         </div>
         <div class="rec-footer">
           <span class="rec-course">Data Structures · Networks Programming · Distributed Systems</span>
-          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-khaled.pdf" target="_blank" class="cert-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Letter
-          </a>
+          <div class="cert-btns">
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-khaled.pdf" target="_blank" class="cert-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              View
+            </a>
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-khaled.pdf" download class="cert-dl-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1306,10 +1345,16 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <h3>IT Trainee</h3>
         <h4>Ministry of Education — Al Dhahira, Oman</h4>
         <p>Supported IT infrastructure and network systems. Gained hands-on experience securing network environments and providing technical support to staff.</p>
-        <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/moe-training.pdf" target="_blank" class="cert-link" style="margin-top:1rem;display:inline-flex">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Certificate
-        </a>
+        <div class="cert-btns" style="margin-top:1rem">
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/moe-training.pdf" target="_blank" class="cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            View
+          </a>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/moe-training.pdf" download class="cert-dl-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
       </div>
       <div class="t-card reveal">
         <div class="t-period">Jun – Aug 2023</div>
@@ -1317,38 +1362,62 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <h3>Cybersecurity Trainee</h3>
         <h4>Nama Group, Oman</h4>
         <p>Participated in system monitoring and risk assessment across enterprise infrastructure. Supported security practice reviews and technical documentation.</p>
-        <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/nama-training.pdf" target="_blank" class="cert-link" style="margin-top:1rem;display:inline-flex">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Certificate
-        </a>
+        <div class="cert-btns" style="margin-top:1rem">
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/nama-training.pdf" target="_blank" class="cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            View
+          </a>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/nama-training.pdf" download class="cert-dl-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
       </div>
       <div class="events-row reveal-stagger">
         <div class="e-card">
           <div class="e-icon">💻</div>
           <h5>Hackathon</h5>
           <p>هاكاثون نسج — Collaborative tech challenge</p>
-          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/hackathon-nasj.pdf" target="_blank" class="e-cert-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View
-          </a>
+          <div class="e-cert-btns">
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/hackathon-nasj.pdf" target="_blank" class="e-cert-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              View
+            </a>
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/hackathon-nasj.pdf" download class="e-cert-dl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
         </div>
         <div class="e-card">
           <div class="e-icon">🚀</div>
           <h5>Innovation Challenge</h5>
           <p>تحدي الابتكار الريادي — Entrepreneurial innovation competition</p>
-          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/innovation-challenge.pdf" target="_blank" class="e-cert-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View
-          </a>
+          <div class="e-cert-btns">
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/innovation-challenge.pdf" target="_blank" class="e-cert-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              View
+            </a>
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/innovation-challenge.pdf" download class="e-cert-dl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
         </div>
         <div class="e-card">
           <div class="e-icon">📊</div>
           <h5>Statistical Forum</h5>
           <p>الملتقى الإحصائي — Academic statistics conference</p>
-          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/statistical-forum.pdf" target="_blank" class="e-cert-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View
-          </a>
+          <div class="e-cert-btns">
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/statistical-forum.pdf" target="_blank" class="e-cert-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              View
+            </a>
+            <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/statistical-forum.pdf" download class="e-cert-dl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
         </div>
       </div>
     </div>
