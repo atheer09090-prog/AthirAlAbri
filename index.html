@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,667 +11,654 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  --bg:#F7F5F0;
-  --bg2:#EDEAE2;
-  --white:#FFFFFF;
-  --ink:#1C1A16;
-  --ink2:#5A5750;
-  --ink3:#9B9790;
-  --accent:#C1400A;
-  --accent2:#E05E28;
-  --accent-light:#FDF0EA;
-  --teal:#0B6B5D;
-  --teal-light:#E6F5F2;
-  --border:rgba(28,26,22,0.1);
-  --border2:rgba(28,26,22,0.06);
+–bg:#F7F5F0;
+–bg2:#EDEAE2;
+–white:#FFFFFF;
+–ink:#1C1A16;
+–ink2:#5A5750;
+–ink3:#9B9790;
+–accent:#C1400A;
+–accent2:#E05E28;
+–accent-light:#FDF0EA;
+–teal:#0B6B5D;
+–teal-light:#E6F5F2;
+–border:rgba(28,26,22,0.1);
+–border2:rgba(28,26,22,0.06);
 }
 
 html{scroll-behavior:smooth}
 body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Geist',sans-serif;
-  font-weight:300;
-  overflow-x:hidden;
-  line-height:1.6;
+background:var(–bg);
+color:var(–ink);
+font-family:‘Geist’,sans-serif;
+font-weight:300;
+overflow-x:hidden;
+line-height:1.6;
 }
 
 /* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 3rem;height:64px;
-  background:rgba(247,245,240,0.88);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border2);
+position:fixed;top:0;left:0;right:0;z-index:100;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 3rem;height:64px;
+background:rgba(247,245,240,0.88);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(–border2);
 }
 .nav-logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.35rem;letter-spacing:0.06em;
-  color:var(--ink);text-decoration:none;
+font-family:‘Bebas Neue’,sans-serif;
+font-size:1.35rem;letter-spacing:0.06em;
+color:var(–ink);text-decoration:none;
 }
-.nav-logo span{color:var(--accent)}
+.nav-logo span{color:var(–accent)}
 .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
 .nav-links a{
-  font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--ink2);text-decoration:none;transition:color 0.2s;
+font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+color:var(–ink2);text-decoration:none;transition:color 0.2s;
 }
-.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover{color:var(–accent)}
 .nav-cta{
-  background:var(--ink)!important;color:var(--white)!important;
-  padding:8px 22px!important;border-radius:100px;
-  transition:background 0.2s!important;
+background:var(–ink)!important;color:var(–white)!important;
+padding:8px 22px!important;border-radius:100px;
+transition:background 0.2s!important;
 }
-.nav-cta:hover{background:var(--accent)!important;color:var(--white)!important}
+.nav-cta:hover{background:var(–accent)!important;color:var(–white)!important}
 
-/* Hamburger */
 .hamburger{
-  display:none;flex-direction:column;gap:5px;
-  background:none;border:none;cursor:pointer;padding:8px;
-  z-index:101;
+display:none;flex-direction:column;gap:5px;
+background:none;border:none;cursor:pointer;padding:8px;
+z-index:101;
 }
 .hamburger span{
-  display:block;width:24px;height:2px;
-  background:var(--ink);border-radius:2px;
-  transition:transform 0.3s,opacity 0.3s;
+display:block;width:24px;height:2px;
+background:var(–ink);border-radius:2px;
+transition:transform 0.3s,opacity 0.3s;
 }
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* Mobile drawer */
 .mobile-menu{
-  display:none;
-  position:fixed;top:64px;left:0;right:0;bottom:0;
-  background:rgba(247,245,240,0.97);
-  backdrop-filter:blur(20px);
-  z-index:99;
-  flex-direction:column;align-items:center;justify-content:center;
-  gap:2.5rem;
-  opacity:0;transform:translateY(-12px);
-  transition:opacity 0.3s,transform 0.3s;
+display:none;
+position:fixed;top:64px;left:0;right:0;bottom:0;
+background:rgba(247,245,240,0.97);
+backdrop-filter:blur(20px);
+z-index:99;
+flex-direction:column;align-items:center;justify-content:center;
+gap:2.5rem;
+opacity:0;transform:translateY(-12px);
+transition:opacity 0.3s,transform 0.3s;
 }
 .mobile-menu.open{display:flex;opacity:1;transform:translateY(0)}
 .mobile-menu a{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:2.5rem;letter-spacing:0.06em;
-  color:var(--ink);text-decoration:none;
-  transition:color 0.2s;
+font-family:‘Bebas Neue’,sans-serif;
+font-size:2.5rem;letter-spacing:0.06em;
+color:var(–ink);text-decoration:none;
+transition:color 0.2s;
 }
-.mobile-menu a:hover{color:var(--accent)}
+.mobile-menu a:hover{color:var(–accent)}
 .mobile-menu a.nav-cta-m{
-  background:var(--ink);color:var(--white)!important;
-  padding:12px 40px;border-radius:100px;
-  font-size:1.5rem;
+background:var(–ink);color:var(–white)!important;
+padding:12px 40px;border-radius:100px;
+font-size:1.5rem;
 }
 
 /* ── HERO ── */
 .hero{
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  padding-top:64px;
-  position:relative;
-  overflow:hidden;
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+padding-top:64px;
+position:relative;
+overflow:hidden;
 }
 .hero::before{
-  content:'';
-  position:absolute;inset:0;
-  background-image:
-    radial-gradient(circle at 70% 30%, rgba(193,64,10,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(11,107,93,0.04) 0%, transparent 40%);
-  pointer-events:none;
+content:’’;
+position:absolute;inset:0;
+background-image:
+radial-gradient(circle at 70% 30%, rgba(193,64,10,0.06) 0%, transparent 50%),
+radial-gradient(circle at 20% 80%, rgba(11,107,93,0.04) 0%, transparent 40%);
+pointer-events:none;
 }
 .hero-left{
-  display:flex;flex-direction:column;justify-content:center;
-  padding:5rem 3rem 5rem 3rem;
-  position:relative;z-index:2;
-  border-right:1px solid var(--border);
+display:flex;flex-direction:column;justify-content:center;
+padding:5rem 3rem 5rem 3rem;
+position:relative;z-index:2;
+border-right:1px solid var(–border);
 }
 .hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--accent);font-weight:500;
-  margin-bottom:2.5rem;
+display:inline-flex;align-items:center;gap:8px;
+font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+color:var(–accent);font-weight:500;
+margin-bottom:2.5rem;
 }
-.hero-tag::before{content:'';width:20px;height:1px;background:var(--accent)}
+.hero-tag::before{content:’’;width:20px;height:1px;background:var(–accent)}
 .hero-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(5rem,8vw,9rem);
-  line-height:0.9;
-  letter-spacing:0.01em;
-  color:var(--ink);
-  margin-bottom:2.5rem;
+font-family:‘Bebas Neue’,sans-serif;
+font-size:clamp(5rem,8vw,9rem);
+line-height:0.9;
+letter-spacing:0.01em;
+color:var(–ink);
+margin-bottom:2.5rem;
 }
-.hero-name .accent-line{color:var(--accent);display:block}
+.hero-name .accent-line{color:var(–accent);display:block}
 .hero-desc{
-  font-size:17px;line-height:1.85;
-  color:var(--ink2);
-  max-width:400px;
-  margin-bottom:3rem;
-  padding-left:1.25rem;
-  border-left:2px solid var(--accent);
+font-size:17px;line-height:1.85;
+color:var(–ink2);
+max-width:400px;
+margin-bottom:3rem;
+padding-left:1.25rem;
+border-left:2px solid var(–accent);
 }
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-fill{
-  background:var(--ink);color:var(--white);
-  padding:14px 32px;border-radius:100px;
-  font-size:13px;font-weight:500;letter-spacing:0.05em;
-  text-decoration:none;
-  transition:background 0.2s,transform 0.15s;
-  display:inline-block;
+background:var(–ink);color:var(–white);
+padding:14px 32px;border-radius:100px;
+font-size:13px;font-weight:500;letter-spacing:0.05em;
+text-decoration:none;
+transition:background 0.2s,transform 0.15s;
+display:inline-block;
 }
-.btn-fill:hover{background:var(--accent);transform:translateY(-2px)}
+.btn-fill:hover{background:var(–accent);transform:translateY(-2px)}
 .btn-stroke{
-  border:1.5px solid var(--border);color:var(--ink);
-  padding:14px 32px;border-radius:100px;
-  font-size:13px;font-weight:500;letter-spacing:0.05em;
-  text-decoration:none;
-  transition:border-color 0.2s,transform 0.15s;
-  display:inline-block;
+border:1.5px solid var(–border);color:var(–ink);
+padding:14px 32px;border-radius:100px;
+font-size:13px;font-weight:500;letter-spacing:0.05em;
+text-decoration:none;
+transition:border-color 0.2s,transform 0.15s;
+display:inline-block;
 }
-.btn-stroke:hover{border-color:var(--ink);transform:translateY(-2px)}
-
-/* CV Download button */
+.btn-stroke:hover{border-color:var(–ink);transform:translateY(-2px)}
 .btn-cv{
-  background:var(--accent-light);color:var(--accent);
-  border:1.5px solid rgba(193,64,10,0.2);
-  padding:14px 32px;border-radius:100px;
-  font-size:13px;font-weight:500;letter-spacing:0.05em;
-  text-decoration:none;
-  transition:background 0.2s,transform 0.15s,border-color 0.2s;
-  display:inline-flex;align-items:center;gap:8px;
+background:var(–accent-light);color:var(–accent);
+border:1.5px solid rgba(193,64,10,0.2);
+padding:14px 32px;border-radius:100px;
+font-size:13px;font-weight:500;letter-spacing:0.05em;
+text-decoration:none;
+transition:background 0.2s,transform 0.15s,border-color 0.2s;
+display:inline-flex;align-items:center;gap:8px;
 }
-.btn-cv:hover{background:var(--accent);color:var(--white);border-color:var(--accent);transform:translateY(-2px)}
+.btn-cv:hover{background:var(–accent);color:var(–white);border-color:var(–accent);transform:translateY(-2px)}
 
-/* Hero right — stats */
 .hero-right{
-  display:flex;flex-direction:column;
-  position:relative;z-index:2;
+display:flex;flex-direction:column;
+position:relative;z-index:2;
 }
 .hero-stats{
-  flex:1;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:3rem;
-  gap:0;
+flex:1;
+display:flex;flex-direction:column;justify-content:center;
+padding:3rem;
+gap:0;
 }
 .stat-row{
-  display:grid;grid-template-columns:120px 1fr;
-  align-items:center;
-  gap:1.5rem;
-  padding:1.5rem 0;
-  border-bottom:1px solid var(--border2);
+display:grid;grid-template-columns:120px 1fr;
+align-items:center;
+gap:1.5rem;
+padding:1.5rem 0;
+border-bottom:1px solid var(–border2);
 }
-.stat-row:first-child{border-top:1px solid var(--border2)}
+.stat-row:first-child{border-top:1px solid var(–border2)}
 .stat-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:3.2rem;line-height:1;
-  color:var(--ink);
+font-family:‘Bebas Neue’,sans-serif;
+font-size:3.2rem;line-height:1;
+color:var(–ink);
 }
-.stat-num.hi{color:var(--accent)}
-.stat-label{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:3px}
-.stat-sub{font-size:12px;color:var(--ink3)}
+.stat-num.hi{color:var(–accent)}
+.stat-label{font-size:15px;font-weight:500;color:var(–ink);margin-bottom:3px}
+.stat-sub{font-size:12px;color:var(–ink3)}
 .hero-tags{
-  padding:2rem 3rem;
-  border-top:1px solid var(--border2);
-  display:flex;flex-wrap:wrap;gap:8px;
+padding:2rem 3rem;
+border-top:1px solid var(–border2);
+display:flex;flex-wrap:wrap;gap:8px;
 }
 .htag{
-  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
-  border:1px solid var(--border);
-  color:var(--ink2);padding:5px 14px;border-radius:100px;
-  transition:border-color 0.2s,color 0.2s,background 0.2s;
+font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
+border:1px solid var(–border);
+color:var(–ink2);padding:5px 14px;border-radius:100px;
+transition:border-color 0.2s,color 0.2s,background 0.2s;
 }
-.htag:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.htag:hover{border-color:var(–accent);color:var(–accent);background:var(–accent-light)}
 
 /* ── SECTION UTILS ── */
 .section-eyebrow{
-  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--accent);font-weight:500;
-  display:flex;align-items:center;gap:8px;
-  margin-bottom:1.25rem;
+font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+color:var(–accent);font-weight:500;
+display:flex;align-items:center;gap:8px;
+margin-bottom:1.25rem;
 }
-.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent)}
+.section-eyebrow::before{content:’’;width:20px;height:1px;background:var(–accent)}
 .section-h{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,3.5vw,3rem);
-  line-height:1.15;color:var(--ink);
-  margin-bottom:2.5rem;
+font-family:‘Instrument Serif’,serif;
+font-size:clamp(2rem,3.5vw,3rem);
+line-height:1.15;color:var(–ink);
+margin-bottom:2.5rem;
 }
-.section-h em{font-style:italic;color:var(--accent)}
+.section-h em{font-style:italic;color:var(–accent)}
 
 /* ── ABOUT ── */
 .about{
-  background:var(--white);
-  padding:7rem 3rem;
-  position:relative;overflow:hidden;
+background:var(–white);
+padding:7rem 3rem;
+position:relative;overflow:hidden;
 }
 .about-watermark{
-  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
-  font-family:'Bebas Neue',sans-serif;
-  font-size:18vw;color:rgba(28,26,22,0.035);
-  line-height:1;pointer-events:none;white-space:nowrap;
-  user-select:none;
+position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
+font-family:‘Bebas Neue’,sans-serif;
+font-size:18vw;color:rgba(28,26,22,0.035);
+line-height:1;pointer-events:none;white-space:nowrap;
+user-select:none;
 }
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:6rem;align-items:start;position:relative;z-index:1}
-.about-text p{font-size:16px;line-height:1.85;color:var(--ink2);margin-bottom:1.25rem}
-.about-text strong{color:var(--ink);font-weight:600}
+.about-text p{font-size:16px;line-height:1.85;color:var(–ink2);margin-bottom:1.25rem}
+.about-text strong{color:var(–ink);font-weight:600}
 .edu-list{margin-top:0}
 .edu-row{
-  display:flex;gap:1.25rem;align-items:flex-start;
-  padding:1.5rem 0;border-top:1px solid var(--border2);
+display:flex;gap:1.25rem;align-items:flex-start;
+padding:1.5rem 0;border-top:1px solid var(–border2);
 }
-.edu-row:last-of-type{border-bottom:1px solid var(--border2)}
+.edu-row:last-of-type{border-bottom:1px solid var(–border2)}
 .edu-year{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.3rem;color:var(--ink3);
-  min-width:52px;padding-top:2px;
+font-family:‘Bebas Neue’,sans-serif;
+font-size:1.3rem;color:var(–ink3);
+min-width:52px;padding-top:2px;
 }
-.edu-body h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px}
-.edu-body p{font-size:13px;color:var(--ink2);line-height:1.5}
+.edu-body h4{font-size:15px;font-weight:600;color:var(–ink);margin-bottom:4px}
+.edu-body p{font-size:13px;color:var(–ink2);line-height:1.5}
 .edu-pill{
-  display:inline-block;margin-top:8px;
-  font-size:11px;letter-spacing:0.06em;font-weight:500;
-  background:var(--bg2);color:var(--ink2);
-  padding:3px 12px;border-radius:100px;
+display:inline-block;margin-top:8px;
+font-size:11px;letter-spacing:0.06em;font-weight:500;
+background:var(–bg2);color:var(–ink2);
+padding:3px 12px;border-radius:100px;
 }
 .award-card{
-  margin-top:1.5rem;
-  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
-  border-radius:16px;padding:1.5rem 1.75rem;
-  color:white;
-  display:flex;align-items:center;gap:1rem;
+margin-top:1.5rem;
+background:linear-gradient(135deg,var(–accent) 0%,var(–accent2) 100%);
+border-radius:16px;padding:1.5rem 1.75rem;
+color:white;
+display:flex;align-items:center;gap:1rem;
 }
 .award-card .icon{font-size:2rem;flex-shrink:0}
 .award-card h4{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.8;margin-bottom:4px}
 .award-card p{font-size:14px;line-height:1.5;opacity:0.92}
 
 /* ── PROJECTS ── */
-.projects{background:var(--bg);padding:7rem 3rem}
+.projects{background:var(–bg);padding:7rem 3rem}
 .projects-inner{max-width:1200px;margin:0 auto}
 .projects-top{
-  display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;
+display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;
 }
 .projects-top .section-h{margin-bottom:0}
 .proj-counter{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:6rem;color:rgba(28,26,22,0.06);
-  line-height:1;
+font-family:‘Bebas Neue’,sans-serif;
+font-size:6rem;color:rgba(28,26,22,0.06);
+line-height:1;
 }
 
-/* Featured */
 .feat{
-  display:grid;grid-template-columns:1fr 1.1fr;
-  background:var(--white);
-  border:1px solid var(--border2);
-  border-radius:24px;overflow:hidden;
-  margin-bottom:1.5rem;
-  box-shadow:0 2px 20px rgba(28,26,22,0.04);
-  transition:box-shadow 0.3s,transform 0.25s;
+display:grid;grid-template-columns:1fr 1.1fr;
+background:var(–white);
+border:1px solid var(–border2);
+border-radius:24px;overflow:hidden;
+margin-bottom:1.5rem;
+box-shadow:0 2px 20px rgba(28,26,22,0.04);
+transition:box-shadow 0.3s,transform 0.25s;
 }
 .feat:hover{box-shadow:0 8px 40px rgba(28,26,22,0.1);transform:translateY(-3px)}
 .feat-visual{
-  background:linear-gradient(145deg,#0D1F2D 0%,#0B3D35 100%);
-  padding:4rem 3rem;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:300px;
-  position:relative;overflow:hidden;
+background:linear-gradient(145deg,#0D1F2D 0%,#0B3D35 100%);
+padding:4rem 3rem;
+display:flex;flex-direction:column;align-items:center;justify-content:center;
+min-height:300px;
+position:relative;overflow:hidden;
 }
 .feat-visual::before{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 50%,rgba(11,107,93,0.4) 0%,transparent 65%);
+content:’’;
+position:absolute;inset:0;
+background:radial-gradient(ellipse at 50% 50%,rgba(11,107,93,0.4) 0%,transparent 65%);
 }
 .feat-arabic{
-  font-size:7rem;line-height:1;
-  background:linear-gradient(135deg,#5ECFC6,#2BA89D);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  position:relative;z-index:1;margin-bottom:0.5rem;
+font-size:7rem;line-height:1;
+background:linear-gradient(135deg,#5ECFC6,#2BA89D);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+position:relative;z-index:1;margin-bottom:0.5rem;
 }
 .feat-url{
-  font-size:12px;letter-spacing:0.08em;
-  color:rgba(255,255,255,0.3);
-  position:relative;z-index:1;
+font-size:12px;letter-spacing:0.08em;
+color:rgba(255,255,255,0.3);
+position:relative;z-index:1;
 }
 .feat-pills{
-  display:flex;gap:6px;margin-top:1.5rem;
-  position:relative;z-index:1;
+display:flex;gap:6px;margin-top:1.5rem;
+position:relative;z-index:1;
 }
 .feat-pill{
-  font-size:11px;padding:4px 12px;
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:100px;color:rgba(255,255,255,0.45);
+font-size:11px;padding:4px 12px;
+border:1px solid rgba(255,255,255,0.12);
+border-radius:100px;color:rgba(255,255,255,0.45);
 }
 .feat-body{padding:3rem}
 .ptag{
-  display:inline-block;
-  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;
-  padding:4px 12px;border-radius:100px;margin-bottom:1rem;
+display:inline-block;
+font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;
+padding:4px 12px;border-radius:100px;margin-bottom:1rem;
 }
-.ptag-teal{background:var(--teal-light);color:var(--teal);border:1px solid rgba(11,107,93,0.15)}
+.ptag-teal{background:var(–teal-light);color:var(–teal);border:1px solid rgba(11,107,93,0.15)}
 .ptag-ml{background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,0.15)}
-.ptag-sec{background:var(--accent-light);color:var(--accent);border:1px solid rgba(193,64,10,0.15)}
-.ptag-sys{background:var(--bg2);color:var(--ink2);border:1px solid var(--border)}
+.ptag-sec{background:var(–accent-light);color:var(–accent);border:1px solid rgba(193,64,10,0.15)}
+.ptag-sys{background:var(–bg2);color:var(–ink2);border:1px solid var(–border)}
+.ptag-gov{background:#FEF9E7;color:#B7770D;border:1px solid rgba(183,119,13,0.2)}
 .feat-body h3{
-  font-family:'Instrument Serif',serif;
-  font-size:1.75rem;color:var(--ink);line-height:1.2;margin-bottom:0.75rem;
+font-family:‘Instrument Serif’,serif;
+font-size:1.75rem;color:var(–ink);line-height:1.2;margin-bottom:0.75rem;
 }
-.feat-body p{font-size:14px;line-height:1.8;color:var(--ink2);margin-bottom:1rem}
+.feat-body p{font-size:14px;line-height:1.8;color:var(–ink2);margin-bottom:1rem}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.75rem}
 .chip{
-  font-size:11px;font-family:'Geist',monospace;
-  background:var(--bg2);color:var(--ink2);
-  padding:4px 12px;border-radius:100px;border:1px solid var(--border2);
+font-size:11px;font-family:‘Geist’,monospace;
+background:var(–bg2);color:var(–ink2);
+padding:4px 12px;border-radius:100px;border:1px solid var(–border2);
 }
 .plink{
-  font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;
-  display:inline-flex;align-items:center;gap:6px;
-  transition:gap 0.2s;
+font-size:13px;font-weight:500;color:var(–accent);text-decoration:none;
+display:inline-flex;align-items:center;gap:6px;
+transition:gap 0.2s;
 }
 .plink:hover{gap:12px}
-.plink::after{content:'→'}
+.plink::after{content:‘→’}
 
-/* SmishGuard demo screenshots */
 .smish-screenshots{
-  display:grid;grid-template-columns:1fr 1fr;gap:8px;
-  margin-bottom:1.5rem;
+display:grid;grid-template-columns:1fr 1fr;gap:8px;
+margin-bottom:1.5rem;
 }
 .smish-thumb{
-  border-radius:10px;overflow:hidden;
-  border:1px solid var(--border2);
-  cursor:pointer;
-  position:relative;
-  transition:transform 0.2s,box-shadow 0.2s;
+border-radius:10px;overflow:hidden;
+border:1px solid var(–border2);
+cursor:pointer;
+position:relative;
+transition:transform 0.2s,box-shadow 0.2s;
 }
 .smish-thumb:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(28,26,22,0.12)}
 .smish-thumb img{width:100%;display:block;height:90px;object-fit:cover;object-position:top}
 .smish-thumb-overlay{
-  position:absolute;inset:0;
-  background:rgba(91,33,182,0.0);
-  display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s;
+position:absolute;inset:0;
+background:rgba(91,33,182,0.0);
+display:flex;align-items:center;justify-content:center;
+transition:background 0.2s;
 }
 .smish-thumb:hover .smish-thumb-overlay{background:rgba(91,33,182,0.55)}
 .smish-thumb-overlay span{
-  font-size:11px;font-weight:500;color:white;
-  opacity:0;transition:opacity 0.2s;
-  letter-spacing:0.06em;
+font-size:11px;font-weight:500;color:white;
+opacity:0;transition:opacity 0.2s;
+letter-spacing:0.06em;
 }
 .smish-thumb:hover .smish-thumb-overlay span{opacity:1}
 
 .demo-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.75rem}
 .demo-btn{
-  font-size:12px;font-weight:500;letter-spacing:0.04em;
-  padding:8px 18px;border-radius:100px;
-  text-decoration:none;cursor:pointer;border:none;
-  display:inline-flex;align-items:center;gap:6px;
-  transition:transform 0.15s,background 0.2s;
+font-size:12px;font-weight:500;letter-spacing:0.04em;
+padding:8px 18px;border-radius:100px;
+text-decoration:none;cursor:pointer;border:none;
+display:inline-flex;align-items:center;gap:6px;
+transition:transform 0.15s,background 0.2s;
 }
 .demo-btn:hover{transform:translateY(-1px)}
 .demo-btn-poster{
-  background:#EDE9FE;color:#5B21B6;
-  border:1px solid rgba(91,33,182,0.2);
+background:#EDE9FE;color:#5B21B6;
+border:1px solid rgba(91,33,182,0.2);
 }
 .demo-btn-poster:hover{background:#5B21B6;color:white}
 
-/* Card grid */
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .pcard{
-  background:var(--white);
-  border:1px solid var(--border2);
-  border-radius:20px;overflow:hidden;
-  box-shadow:0 2px 12px rgba(28,26,22,0.04);
-  transition:box-shadow 0.25s,transform 0.25s;
+background:var(–white);
+border:1px solid var(–border2);
+border-radius:20px;overflow:hidden;
+box-shadow:0 2px 12px rgba(28,26,22,0.04);
+transition:box-shadow 0.25s,transform 0.25s;
 }
 .pcard:hover{box-shadow:0 8px 32px rgba(28,26,22,0.1);transform:translateY(-4px)}
 .pcard-top{
-  padding:2rem 2rem 1.5rem;
-  display:flex;justify-content:space-between;align-items:flex-start;
-  border-bottom:1px solid var(--border2);
+padding:2rem 2rem 1.5rem;
+display:flex;justify-content:space-between;align-items:flex-start;
+border-bottom:1px solid var(–border2);
 }
 .pcard-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.8rem;color:var(--bg2);
+font-family:‘Bebas Neue’,sans-serif;
+font-size:1.8rem;color:var(–bg2);
 }
 .pcard-body{padding:1.75rem 2rem}
 .pcard-body h3{
-  font-family:'Instrument Serif',serif;
-  font-size:1.2rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;
+font-family:‘Instrument Serif’,serif;
+font-size:1.2rem;color:var(–ink);margin-bottom:0.5rem;line-height:1.2;
 }
-.pcard-body p{font-size:13px;line-height:1.75;color:var(--ink2);margin-bottom:1rem}
+.pcard-body p{font-size:13px;line-height:1.75;color:var(–ink2);margin-bottom:1rem}
 
 /* ── SKILLS ── */
-.skills{background:var(--white);padding:7rem 3rem}
+.skills{background:var(–white);padding:7rem 3rem}
 .skills-inner{max-width:1100px;margin:0 auto}
 .skills-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border:1px solid var(--border2);
-  border-radius:20px;overflow:hidden;
-  margin-bottom:3.5rem;
-  box-shadow:0 2px 16px rgba(28,26,22,0.04);
+display:grid;grid-template-columns:repeat(4,1fr);
+border:1px solid var(–border2);
+border-radius:20px;overflow:hidden;
+margin-bottom:3.5rem;
+box-shadow:0 2px 16px rgba(28,26,22,0.04);
 }
 .skill-col{
-  padding:2rem 1.75rem;
-  border-right:1px solid var(--border2);
+padding:2rem 1.75rem;
+border-right:1px solid var(–border2);
 }
 .skill-col:last-child{border-right:none}
 .skill-col h4{
-  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--accent);font-weight:500;
-  margin-bottom:1.25rem;
-  padding-bottom:0.75rem;
-  border-bottom:1px solid var(--border2);
+font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+color:var(–accent);font-weight:500;
+margin-bottom:1.25rem;
+padding-bottom:0.75rem;
+border-bottom:1px solid var(–border2);
 }
 .skill-col ul{list-style:none}
 .skill-col li{
-  font-size:14px;color:var(--ink2);
-  padding:7px 0;
-  border-bottom:1px solid var(--border2);
-  display:flex;align-items:center;gap:8px;
+font-size:14px;color:var(–ink2);
+padding:7px 0;
+border-bottom:1px solid var(–border2);
+display:flex;align-items:center;gap:8px;
 }
 .skill-col li:last-child{border-bottom:none}
 .skill-col li::before{
-  content:'';width:5px;height:5px;border-radius:50%;
-  background:var(--accent);flex-shrink:0;opacity:0.6;
+content:’’;width:5px;height:5px;border-radius:50%;
+background:var(–accent);flex-shrink:0;opacity:0.6;
 }
 
-/* Certs */
 .certs-h{
-  font-family:'Instrument Serif',serif;
-  font-size:1.4rem;color:var(--ink);margin-bottom:1.25rem;
+font-family:‘Instrument Serif’,serif;
+font-size:1.4rem;color:var(–ink);margin-bottom:1.25rem;
 }
 .certs-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;
 }
 .cert{
-  background:var(--bg);border-radius:14px;
-  padding:1.25rem 1.5rem;
-  border-left:3px solid var(--accent);
-  transition:box-shadow 0.2s,transform 0.2s;
+background:var(–bg);border-radius:14px;
+padding:1.25rem 1.5rem;
+border-left:3px solid var(–accent);
+transition:box-shadow 0.2s,transform 0.2s;
 }
 .cert:hover{box-shadow:0 4px 16px rgba(28,26,22,0.08);transform:translateY(-2px)}
-.cert h5{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:6px}
-.cert span{font-size:12px;color:var(--ink3);font-family:'Geist',monospace;display:block;margin-bottom:10px}
+.cert h5{font-size:14px;font-weight:500;color:var(–ink);line-height:1.4;margin-bottom:6px}
+.cert span{font-size:12px;color:var(–ink3);font-family:‘Geist’,monospace;display:block;margin-bottom:10px}
 .cert-link{
-  font-size:11px;font-weight:500;color:var(--accent);
-  text-decoration:none;
-  display:inline-flex;align-items:center;gap:5px;
-  letter-spacing:0.04em;
-  border:1px solid rgba(193,64,10,0.2);
-  background:var(--accent-light);
-  padding:3px 10px;border-radius:100px;
-  transition:background 0.2s,color 0.2s;
+font-size:11px;font-weight:500;color:var(–accent);
+text-decoration:none;
+display:inline-flex;align-items:center;gap:5px;
+letter-spacing:0.04em;
+border:1px solid rgba(193,64,10,0.2);
+background:var(–accent-light);
+padding:3px 10px;border-radius:100px;
+transition:background 0.2s,color 0.2s;
 }
-.cert-link:hover{background:var(--accent);color:white}
+.cert-link:hover{background:var(–accent);color:white}
 .cert-link svg{width:10px;height:10px}
 
 /* ── TRAINING ── */
-.training{background:var(--bg);padding:7rem 3rem}
+.training{background:var(–bg);padding:7rem 3rem}
 .training-inner{max-width:1100px;margin:0 auto}
 .training-cols{
-  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
-  margin-top:2.5rem;
+display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
+margin-top:2.5rem;
 }
 .training-card{
-  background:var(--white);
-  border:1px solid var(--border2);
-  border-radius:20px;padding:2.5rem;
-  box-shadow:0 2px 12px rgba(28,26,22,0.04);
+background:var(–white);
+border:1px solid var(–border2);
+border-radius:20px;padding:2.5rem;
+box-shadow:0 2px 12px rgba(28,26,22,0.04);
 }
 .t-period{
-  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--accent);font-weight:500;margin-bottom:0.5rem;
+font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+color:var(–accent);font-weight:500;margin-bottom:0.5rem;
 }
 .t-badge{
-  display:inline-block;
-  font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
-  border:1px solid var(--border);color:var(--ink3);
-  padding:3px 10px;border-radius:100px;margin-bottom:1rem;
+display:inline-block;
+font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
+border:1px solid var(–border);color:var(–ink3);
+padding:3px 10px;border-radius:100px;margin-bottom:1rem;
 }
 .training-card h3{
-  font-family:'Instrument Serif',serif;
-  font-size:1.35rem;color:var(--ink);margin-bottom:4px;
+font-family:‘Instrument Serif’,serif;
+font-size:1.35rem;color:var(–ink);margin-bottom:4px;
 }
-.training-card h4{font-size:13px;color:var(--ink3);margin-bottom:0.75rem}
-.training-card p{font-size:14px;line-height:1.75;color:var(--ink2)}
+.training-card h4{font-size:13px;color:var(–ink3);margin-bottom:0.75rem}
+.training-card p{font-size:14px;line-height:1.75;color:var(–ink2)}
 .events-row{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1rem;margin-top:1.5rem;
-  grid-column:1/-1;
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:1rem;margin-top:1.5rem;
+grid-column:1/-1;
 }
 .event-card{
-  background:var(--white);
-  border:1px solid var(--border2);
-  border-radius:16px;padding:1.5rem;
-  box-shadow:0 2px 8px rgba(28,26,22,0.04);
+background:var(–white);
+border:1px solid var(–border2);
+border-radius:16px;padding:1.5rem;
+box-shadow:0 2px 8px rgba(28,26,22,0.04);
 }
 .event-card .e-icon{font-size:1.75rem;margin-bottom:0.75rem}
-.event-card h5{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
-.event-card p{font-size:13px;color:var(--ink2);line-height:1.5}
+.event-card h5{font-size:14px;font-weight:600;color:var(–ink);margin-bottom:4px}
+.event-card p{font-size:13px;color:var(–ink2);line-height:1.5}
 
 /* ── CONTACT ── */
 .contact{
-  background:var(--white);
-  padding:7rem 3rem;
-  text-align:center;
-  position:relative;overflow:hidden;
+background:var(–white);
+padding:7rem 3rem;
+text-align:center;
+position:relative;overflow:hidden;
 }
 .contact::before{
-  content:'HELLO';
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  font-family:'Bebas Neue',sans-serif;
-  font-size:22vw;color:rgba(28,26,22,0.03);
-  pointer-events:none;white-space:nowrap;line-height:1;
+content:‘HELLO’;
+position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+font-family:‘Bebas Neue’,sans-serif;
+font-size:22vw;color:rgba(28,26,22,0.03);
+pointer-events:none;white-space:nowrap;line-height:1;
 }
 .contact-inner{position:relative;z-index:1;max-width:560px;margin:0 auto}
 .contact-inner .section-h{font-size:clamp(2rem,4vw,3.5rem)}
-.contact-sub{font-size:17px;line-height:1.75;color:var(--ink2);margin-bottom:3rem}
+.contact-sub{font-size:17px;line-height:1.75;color:var(–ink2);margin-bottom:3rem}
 .contact-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 .cbtn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:100px;
-  font-size:14px;font-weight:500;text-decoration:none;
-  transition:transform 0.15s,background 0.2s,border-color 0.2s;
+display:inline-flex;align-items:center;gap:8px;
+padding:14px 28px;border-radius:100px;
+font-size:14px;font-weight:500;text-decoration:none;
+transition:transform 0.15s,background 0.2s,border-color 0.2s;
 }
 .cbtn:hover{transform:translateY(-2px)}
-.cbtn.primary{background:var(--ink);color:var(--white)}
-.cbtn.primary:hover{background:var(--accent)}
-.cbtn.outline{border:1.5px solid var(--border);color:var(--ink)}
-.cbtn.outline:hover{border-color:var(--ink)}
+.cbtn.primary{background:var(–ink);color:var(–white)}
+.cbtn.primary:hover{background:var(–accent)}
+.cbtn.outline{border:1.5px solid var(–border);color:var(–ink)}
+.cbtn.outline:hover{border-color:var(–ink)}
 
 footer{
-  background:var(--bg2);
-  border-top:1px solid var(--border2);
-  padding:1.5rem 3rem;
-  display:flex;justify-content:space-between;align-items:center;
+background:var(–bg2);
+border-top:1px solid var(–border2);
+padding:1.5rem 3rem;
+display:flex;justify-content:space-between;align-items:center;
 }
-footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:uppercase}
+footer p{font-size:12px;color:var(–ink3);letter-spacing:0.06em;text-transform:uppercase}
 
-/* ── LIGHTBOX / MODAL ── */
+/* ── LIGHTBOX ── */
 .lightbox{
-  display:none;
-  position:fixed;inset:0;z-index:200;
-  background:rgba(28,26,22,0.92);
-  backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;
-  padding:2rem;
+display:none;
+position:fixed;inset:0;z-index:200;
+background:rgba(28,26,22,0.92);
+backdrop-filter:blur(8px);
+align-items:center;justify-content:center;
+padding:2rem;
 }
 .lightbox.open{display:flex}
 .lightbox-inner{
-  position:relative;
-  max-width:900px;width:100%;
-  max-height:90vh;
-  background:var(--white);
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 32px 80px rgba(0,0,0,0.35);
+position:relative;
+max-width:900px;width:100%;
+max-height:90vh;
+background:var(–white);
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 32px 80px rgba(0,0,0,0.35);
 }
 .lightbox-close{
-  position:absolute;top:1rem;right:1rem;z-index:10;
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(28,26,22,0.08);border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--ink);
-  transition:background 0.2s;
+position:absolute;top:1rem;right:1rem;z-index:10;
+width:36px;height:36px;border-radius:50%;
+background:rgba(28,26,22,0.08);border:none;cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+font-size:18px;color:var(–ink);
+transition:background 0.2s;
 }
 .lightbox-close:hover{background:rgba(28,26,22,0.18)}
-.lightbox-img{
-  width:100%;max-height:85vh;
-  object-fit:contain;display:block;
-}
+.lightbox-img{width:100%;max-height:85vh;object-fit:contain;display:block;}
 .lightbox-caption{
-  padding:1rem 1.5rem;
-  font-size:13px;color:var(--ink2);
-  border-top:1px solid var(--border2);
-  background:var(--bg);
+padding:1rem 1.5rem;
+font-size:13px;color:var(–ink2);
+border-top:1px solid var(–border2);
+background:var(–bg);
 }
 
-/* PDF Modal */
 .pdf-modal{
-  display:none;
-  position:fixed;inset:0;z-index:200;
-  background:rgba(28,26,22,0.92);
-  backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;
-  padding:2rem;
+display:none;
+position:fixed;inset:0;z-index:200;
+background:rgba(28,26,22,0.92);
+backdrop-filter:blur(8px);
+align-items:center;justify-content:center;
+padding:2rem;
 }
 .pdf-modal.open{display:flex}
 .pdf-modal-inner{
-  position:relative;
-  max-width:960px;width:100%;
-  height:90vh;
-  background:var(--white);
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 32px 80px rgba(0,0,0,0.35);
-  display:flex;flex-direction:column;
+position:relative;
+max-width:960px;width:100%;
+height:90vh;
+background:var(–white);
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 32px 80px rgba(0,0,0,0.35);
+display:flex;flex-direction:column;
 }
 .pdf-modal-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 1.5rem;
-  border-bottom:1px solid var(--border2);
-  flex-shrink:0;
+display:flex;align-items:center;justify-content:space-between;
+padding:1rem 1.5rem;
+border-bottom:1px solid var(–border2);
+flex-shrink:0;
 }
-.pdf-modal-header h4{font-size:14px;font-weight:500;color:var(--ink)}
+.pdf-modal-header h4{font-size:14px;font-weight:500;color:var(–ink)}
 .pdf-modal-header .pdf-actions{display:flex;gap:8px;align-items:center}
 .pdf-modal iframe{flex:1;border:none;width:100%}
 .modal-close{
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(28,26,22,0.08);border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--ink);
-  transition:background 0.2s;
+width:36px;height:36px;border-radius:50%;
+background:rgba(28,26,22,0.08);border:none;cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+font-size:18px;color:var(–ink);
+transition:background 0.2s;
 }
 .modal-close:hover{background:rgba(28,26,22,0.18)}
 
-/* Screenshot nav */
 .lightbox-nav{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(28,26,22,0.08);border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--ink);
-  transition:background 0.2s;z-index:5;
+position:absolute;top:50%;transform:translateY(-50%);
+width:40px;height:40px;border-radius:50%;
+background:rgba(28,26,22,0.08);border:none;cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+font-size:18px;color:var(–ink);
+transition:background 0.2s;z-index:5;
 }
 .lightbox-nav:hover{background:rgba(28,26,22,0.18)}
 .lightbox-nav.prev{left:1rem}
@@ -678,37 +666,38 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{border-top:1px solid var(--border2)}
-  .feat{grid-template-columns:1fr}
-  .pgrid{grid-template-columns:1fr 1fr}
-  .skills-grid{grid-template-columns:1fr 1fr}
-  .training-cols{grid-template-columns:1fr}
-  .about-inner{grid-template-columns:1fr;gap:3rem}
+.hero{grid-template-columns:1fr}
+.hero-right{border-top:1px solid var(–border2)}
+.feat{grid-template-columns:1fr}
+.pgrid{grid-template-columns:1fr 1fr}
+.skills-grid{grid-template-columns:1fr 1fr}
+.training-cols{grid-template-columns:1fr}
+.about-inner{grid-template-columns:1fr;gap:3rem}
 }
 @media(max-width:768px){
-  nav{padding:0 1.5rem}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .hero-left{padding:4rem 1.5rem}
-  .hero-stats,.hero-tags{padding:2rem 1.5rem}
-  .about,.projects,.skills,.training,.contact{padding:5rem 1.5rem}
-  .pgrid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  .events-row{grid-template-columns:1fr}
-  .projects-top{flex-direction:column;align-items:flex-start;gap:0}
-  footer{flex-direction:column;gap:0.5rem;text-align:center}
-  .smish-screenshots{grid-template-columns:1fr 1fr}
+nav{padding:0 1.5rem}
+.nav-links{display:none}
+.hamburger{display:flex}
+.hero-left{padding:4rem 1.5rem}
+.hero-stats,.hero-tags{padding:2rem 1.5rem}
+.about,.projects,.skills,.training,.contact{padding:5rem 1.5rem}
+.pgrid{grid-template-columns:1fr}
+.skills-grid{grid-template-columns:1fr}
+.events-row{grid-template-columns:1fr}
+.projects-top{flex-direction:column;align-items:flex-start;gap:0}
+footer{flex-direction:column;gap:0.5rem;text-align:center}
+.smish-screenshots{grid-template-columns:1fr 1fr}
 }
 
-/* ── FADE IN on scroll ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
+
 </head>
 <body>
 
 <!-- NAV -->
+
 <nav>
   <a href="#" class="nav-logo">A<span>.</span>AlAbri</a>
   <ul class="nav-links">
@@ -724,6 +713,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </nav>
 
 <!-- Mobile Menu -->
+
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" class="mobile-link">About</a>
   <a href="#projects" class="mobile-link">Projects</a>
@@ -733,6 +723,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </div>
 
 <!-- ── HERO ── -->
+
 <div class="hero">
   <div class="hero-left">
     <span class="hero-tag">Open to Opportunities · Muscat, Oman</span>
@@ -752,7 +743,6 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
       <a href="#contact" class="btn-stroke">Get in Touch</a>
     </div>
   </div>
-
   <div class="hero-right">
     <div class="hero-stats">
       <div class="stat-row">
@@ -798,21 +788,16 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </div>
 
 <!-- ── ABOUT ── -->
+
 <section id="about" class="about">
   <div class="about-watermark">ABOUT</div>
   <div class="about-inner">
     <div class="about-text reveal">
       <div class="section-eyebrow">About Me</div>
       <h2 class="section-h">Securing systems.<br><em>Solving problems.</em></h2>
-      <p>
-        I'm a <strong>Cybersecurity &amp; Network Infrastructure graduate</strong> from Sultan Qaboos University with practical training in penetration testing, network security, digital forensics, and incident response.
-      </p>
-      <p>
-        For my final-year project, I built <strong>SmishGard</strong> — an AI-powered tool that detects SMS phishing (smishing) attacks with 99.5% accuracy. It uses a fine-tuned DistilBERT model, explains its decisions using LIME, and scans suspicious links in real time via the VirusTotal API. It supports both Arabic and English.
-      </p>
-      <p>
-        I also have a side project, <strong>Bayyin (بيّن)</strong>, an Arabic science learning platform for Omani school students — built out of personal interest in making education more interactive.
-      </p>
+      <p>I'm a <strong>Cybersecurity &amp; Network Infrastructure graduate</strong> from Sultan Qaboos University with practical training in penetration testing, network security, digital forensics, and incident response.</p>
+      <p>For my final-year project, I built <strong>SmishGard</strong> — an AI-powered tool that detects SMS phishing (smishing) attacks with 99.5% accuracy. It uses a fine-tuned DistilBERT model, explains its decisions using LIME, and scans suspicious links in real time via the VirusTotal API. It supports both Arabic and English.</p>
+      <p>I also have a side project, <strong>Bayyin (بيّن)</strong>, an Arabic science learning platform for Omani school students — built out of personal interest in making education more interactive.</p>
     </div>
     <div class="about-cards reveal">
       <div class="edu-list">
@@ -845,6 +830,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </section>
 
 <!-- ── PROJECTS ── -->
+
 <section id="projects" class="projects">
   <div class="projects-inner">
     <div class="projects-top reveal">
@@ -852,123 +838,156 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
         <div class="section-eyebrow">Projects</div>
         <h2 class="section-h">Things I've <em>built.</em></h2>
       </div>
-      <div class="proj-counter">04</div>
+      <div class="proj-counter">05</div>
     </div>
 
-    <!-- SmishGard -->
-    <div class="feat reveal">
-      <div class="feat-visual" style="background:linear-gradient(145deg,#0D1527 0%,#1A1040 100%);">
-        <div style="position:relative;z-index:1;text-align:center;">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.06em;color:white;line-height:1;">SmishGard</div>
-          <div style="font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:0.5rem;">Final Year Project · SQU 2026</div>
-          <div class="feat-pills" style="justify-content:center;margin-top:1.5rem;">
-            <span class="feat-pill">99.5% Accuracy</span>
-            <span class="feat-pill">DistilBERT</span>
-            <span class="feat-pill">LIME</span>
-          </div>
-        </div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(139,92,246,0.25) 0%,transparent 65%);"></div>
-      </div>
-      <div class="feat-body">
-        <span class="ptag ptag-ml">Final Year Project · Cybersecurity &amp; ML</span>
-        <h3>SmishGard — SMS Phishing Detection</h3>
-        <p>SmishGard detects smishing (SMS phishing) attacks using a fine-tuned DistilBERT model trained on over 8,000 SMS messages. It achieved <strong style="color:var(--ink)">99.5% accuracy</strong>, outperforming five other ML models including CNN-LSTM and XGBoost.</p>
-        <p>It explains every decision using <strong style="color:var(--ink)">LIME</strong> — highlighting exactly which words triggered the detection — and cross-checks embedded links against the <strong style="color:var(--ink)">VirusTotal API</strong> in real time. Supports both Arabic and English messages.</p>
-
-        <!-- Screenshot thumbnails -->
-        <div class="smish-screenshots">
-          <div class="smish-thumb" onclick="openLightbox(0)" title="View screenshot">
-            <img src="SmishGuard-poster.pdf#page=2" alt="SmishGard Input UI" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A1040,#2D1B69)';this.style.display='none';this.parentElement.querySelector('.smish-thumb-overlay').innerHTML='<span style=\'opacity:1;font-size:13px\'>📱 Input Screen</span>'">
-            <div class="smish-thumb-overlay"><span>🔍 View Screenshot</span></div>
-          </div>
-          <div class="smish-thumb" onclick="openLightbox(1)" title="View results">
-            <img src="SmishGuard-poster.pdf#page=3" alt="SmishGard Results" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A0A0A,#4A1010)';this.style.display='none';this.parentElement.querySelector('.smish-thumb-overlay').innerHTML='<span style=\'opacity:1;font-size:13px\'>⚠️ Results Screen</span>'">
-            <div class="smish-thumb-overlay"><span>⚠️ Detection Results</span></div>
-          </div>
-        </div>
-
-        <div class="demo-btns">
-          <button class="demo-btn demo-btn-poster" onclick="openPdfModal()">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            View Research Poster
-          </button>
-          <a href="SmishGuard-poster.pdf" download class="demo-btn" style="background:var(--bg2);color:var(--ink2);border:1px solid var(--border);">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Poster
-          </a>
-        </div>
-
-        <p style="font-size:13px;color:var(--ink3)">Deployed as a Flask web app. 75% of user testers rated it "Excellent."</p>
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">DistilBERT</span>
-          <span class="chip">Flask</span>
-          <span class="chip">LIME</span>
-          <span class="chip">VirusTotal API</span>
-          <span class="chip">NLP</span>
-        </div>
+```
+<!-- SmishGard -->
+<div class="feat reveal">
+  <div class="feat-visual" style="background:linear-gradient(145deg,#0D1527 0%,#1A1040 100%);">
+    <div style="position:relative;z-index:1;text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.06em;color:white;line-height:1;">SmishGard</div>
+      <div style="font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:0.5rem;">Final Year Project · SQU 2026</div>
+      <div class="feat-pills" style="justify-content:center;margin-top:1.5rem;">
+        <span class="feat-pill">99.5% Accuracy</span>
+        <span class="feat-pill">DistilBERT</span>
+        <span class="feat-pill">LIME</span>
       </div>
     </div>
-
-    <!-- Bayyin -->
-    <div class="feat reveal" style="margin-bottom:1.5rem;">
-      <div class="feat-visual" style="background:linear-gradient(145deg,#0D1B2A 0%,#0B3D35 100%);">
-        <div style="position:relative;z-index:1;text-align:center;">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;background:linear-gradient(135deg,#5ECFC6,#2BA89D);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">بيّن</div>
-          <div style="font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:0.5rem;">bayyin-six.vercel.app</div>
-          <div class="feat-pills" style="justify-content:center;margin-top:1.25rem;">
-            <span class="feat-pill">Physics</span>
-            <span class="feat-pill">Chemistry</span>
-            <span class="feat-pill">Biology</span>
-          </div>
-        </div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(11,107,93,0.35) 0%,transparent 65%);"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(139,92,246,0.25) 0%,transparent 65%);"></div>
+  </div>
+  <div class="feat-body">
+    <span class="ptag ptag-ml">Final Year Project · Cybersecurity &amp; ML</span>
+    <h3>SmishGard — SMS Phishing Detection</h3>
+    <p>SmishGard detects smishing (SMS phishing) attacks using a fine-tuned DistilBERT model trained on over 8,000 SMS messages. It achieved <strong style="color:var(--ink)">99.5% accuracy</strong>, outperforming five other ML models including CNN-LSTM and XGBoost.</p>
+    <p>It explains every decision using <strong style="color:var(--ink)">LIME</strong> — highlighting exactly which words triggered the detection — and cross-checks embedded links against the <strong style="color:var(--ink)">VirusTotal API</strong> in real time. Supports both Arabic and English messages.</p>
+    <div class="smish-screenshots">
+      <div class="smish-thumb" onclick="openLightbox(0)" title="View screenshot">
+        <img src="SmishGuard-poster.pdf#page=2" alt="SmishGard Input UI" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A1040,#2D1B69)';this.style.display='none';this.parentElement.querySelector('.smish-thumb-overlay').innerHTML='<span style=\'opacity:1;font-size:13px\'>📱 Input Screen</span>'">
+        <div class="smish-thumb-overlay"><span>🔍 View Screenshot</span></div>
       </div>
-      <div class="feat-body">
-        <span class="ptag ptag-teal">Personal Project · Arabic EdTech</span>
-        <h3>Bayyin — Interactive Science Platform</h3>
-        <p>An Arabic-first interactive science simulation platform built for Omani school students in Grades 5–9. Features 30+ Canvas-based simulations covering physics, chemistry, biology, and ecology — all aligned to the Omani national curriculum and fully in RTL Arabic.</p>
-        <p style="font-size:13px;color:var(--ink3)">Includes a quiz engine, real-time data visualisation, dark mode, subscription system via Lemon Squeezy, and Supabase backend.</p>
-        <div class="chips">
-          <span class="chip">JavaScript</span>
-          <span class="chip">Canvas API</span>
-          <span class="chip">Supabase</span>
-          <span class="chip">Arabic RTL</span>
-          <span class="chip">Lemon Squeezy</span>
-        </div>
-        <a href="https://bayyin-six.vercel.app" target="_blank" class="plink">Visit Platform</a>
+      <div class="smish-thumb" onclick="openLightbox(1)" title="View results">
+        <img src="SmishGuard-poster.pdf#page=3" alt="SmishGard Results" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A0A0A,#4A1010)';this.style.display='none';this.parentElement.querySelector('.smish-thumb-overlay').innerHTML='<span style=\'opacity:1;font-size:13px\'>⚠️ Results Screen</span>'">
+        <div class="smish-thumb-overlay"><span>⚠️ Detection Results</span></div>
       </div>
     </div>
+    <div class="demo-btns">
+      <button class="demo-btn demo-btn-poster" onclick="openPdfModal()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View Research Poster
+      </button>
+      <a href="SmishGuard-poster.pdf" download class="demo-btn" style="background:var(--bg2);color:var(--ink2);border:1px solid var(--border);">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Poster
+      </a>
+    </div>
+    <p style="font-size:13px;color:var(--ink3)">Deployed as a Flask web app. 75% of user testers rated it "Excellent."</p>
+    <div class="chips">
+      <span class="chip">Python</span>
+      <span class="chip">DistilBERT</span>
+      <span class="chip">Flask</span>
+      <span class="chip">LIME</span>
+      <span class="chip">VirusTotal API</span>
+      <span class="chip">NLP</span>
+    </div>
+  </div>
+</div>
 
-    <!-- Smaller cards -->
-    <div class="pgrid">
-      <div class="pcard reveal">
-        <div class="pcard-top">
-          <span class="ptag ptag-sec" style="margin:0">Cybersecurity</span>
-          <span class="pcard-num">01</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Security Labs</h3>
-          <p>Hands-on penetration testing using Nmap and Wireshark for network analysis, plus digital forensics work including USB imaging and RAM analysis with FTK Imager.</p>
-          <div class="chips"><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Metasploit</span><span class="chip">FTK Imager</span></div>
-        </div>
-      </div>
-      <div class="pcard reveal">
-        <div class="pcard-top">
-          <span class="ptag ptag-sys" style="margin:0">Systems</span>
-          <span class="pcard-num">02</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Distributed Systems &amp; C Programming</h3>
-          <p>Built a Java RMI-based distributed system alongside low-level network programming in C and Bash — covering sockets, process management, and inter-process communication.</p>
-          <div class="chips"><span class="chip">Java RMI</span><span class="chip">C</span><span class="chip">Bash</span><span class="chip">Linux</span></div>
-        </div>
+<!-- Bayyin -->
+<div class="feat reveal" style="margin-bottom:1.5rem;">
+  <div class="feat-visual" style="background:linear-gradient(145deg,#0D1B2A 0%,#0B3D35 100%);">
+    <div style="position:relative;z-index:1;text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;background:linear-gradient(135deg,#5ECFC6,#2BA89D);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">بيّن</div>
+      <div style="font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:0.5rem;">bayyin-six.vercel.app</div>
+      <div class="feat-pills" style="justify-content:center;margin-top:1.25rem;">
+        <span class="feat-pill">Physics</span>
+        <span class="feat-pill">Chemistry</span>
+        <span class="feat-pill">Biology</span>
       </div>
     </div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(11,107,93,0.35) 0%,transparent 65%);"></div>
+  </div>
+  <div class="feat-body">
+    <span class="ptag ptag-teal">Personal Project · Arabic EdTech</span>
+    <h3>Bayyin — Interactive Science Platform</h3>
+    <p>An Arabic-first interactive science simulation platform built for Omani school students in Grades 5–9. Features 30+ Canvas-based simulations covering physics, chemistry, biology, and ecology — all aligned to the Omani national curriculum and fully in RTL Arabic.</p>
+    <p style="font-size:13px;color:var(--ink3)">Includes a quiz engine, real-time data visualisation, dark mode, subscription system via Lemon Squeezy, and Supabase backend.</p>
+    <div class="chips">
+      <span class="chip">JavaScript</span>
+      <span class="chip">Canvas API</span>
+      <span class="chip">Supabase</span>
+      <span class="chip">Arabic RTL</span>
+      <span class="chip">Lemon Squeezy</span>
+    </div>
+    <a href="https://bayyin-six.vercel.app" target="_blank" class="plink">Visit Platform</a>
+  </div>
+</div>
+
+<!-- ── ITQAN ── -->
+<div class="feat reveal" style="margin-bottom:1.5rem;">
+  <div class="feat-visual" style="background:linear-gradient(145deg,#0B1A2E 0%,#1B2B5E 100%);">
+    <div style="position:relative;z-index:1;text-align:center;">
+      <div style="font-size:11px;letter-spacing:0.2em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:0.75rem;">ITQAN Bootcamp · 2026</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1.1;background:linear-gradient(135deg,#C9A84C,#F0D080);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.25rem;">منظومة<br>التحقق الذكي</div>
+      <div style="font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.25);margin-top:0.6rem;">Ministry of Housing · Oman</div>
+      <div class="feat-pills" style="justify-content:center;margin-top:1.25rem;">
+        <span class="feat-pill">80% Faster</span>
+        <span class="feat-pill">OCR + AI</span>
+        <span class="feat-pill">Live Demo</span>
+      </div>
+    </div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.12) 0%,transparent 65%);"></div>
+  </div>
+  <div class="feat-body">
+    <span class="ptag ptag-gov">Bootcamp · AI + Gov Tech</span>
+    <h3>AI-Powered Document Verification System</h3>
+    <p>Built during the <strong style="color:var(--ink)">ITQAN Bootcamp</strong> — a government innovation programme run by the Ministry of Labour and Ministry of Housing and Urban Planning, Oman.</p>
+    <p>The system automates property ownership document verification using OCR and AI — reducing manual review time from <strong style="color:var(--ink)">45 minutes to 18 seconds</strong>. Features a citizen upload portal and a full staff review dashboard with real-time AI confidence scoring and forgery detection.</p>
+    <div class="chips">
+      <span class="chip">Python</span>
+      <span class="chip">OCR</span>
+      <span class="chip">AI Analysis</span>
+      <span class="chip">FastAPI</span>
+      <span class="chip">React</span>
+      <span class="chip">Arabic RTL</span>
+      <span class="chip">PostgreSQL</span>
+    </div>
+    <a href="https://itqaan-tawny.vercel.app/" target="_blank" class="plink">View Live Demo</a>
+  </div>
+</div>
+
+<!-- Smaller cards -->
+<div class="pgrid">
+  <div class="pcard reveal">
+    <div class="pcard-top">
+      <span class="ptag ptag-sec" style="margin:0">Cybersecurity</span>
+      <span class="pcard-num">01</span>
+    </div>
+    <div class="pcard-body">
+      <h3>Security Labs</h3>
+      <p>Hands-on penetration testing using Nmap and Wireshark for network analysis, plus digital forensics work including USB imaging and RAM analysis with FTK Imager.</p>
+      <div class="chips"><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Metasploit</span><span class="chip">FTK Imager</span></div>
+    </div>
+  </div>
+  <div class="pcard reveal">
+    <div class="pcard-top">
+      <span class="ptag ptag-sys" style="margin:0">Systems</span>
+      <span class="pcard-num">02</span>
+    </div>
+    <div class="pcard-body">
+      <h3>Distributed Systems &amp; C Programming</h3>
+      <p>Built a Java RMI-based distributed system alongside low-level network programming in C and Bash — covering sockets, process management, and inter-process communication.</p>
+      <div class="chips"><span class="chip">Java RMI</span><span class="chip">C</span><span class="chip">Bash</span><span class="chip">Linux</span></div>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
 <!-- ── SKILLS ── -->
+
 <section id="skills" class="skills">
   <div class="skills-inner">
     <div class="section-eyebrow reveal">Skills</div>
@@ -1003,7 +1022,6 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
         </ul>
       </div>
     </div>
-
     <div class="certs-h reveal">Certifications</div>
     <div class="certs-grid reveal">
       <div class="cert">
@@ -1051,6 +1069,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </section>
 
 <!-- ── TRAINING ── -->
+
 <section id="training" class="training">
   <div class="training-inner">
     <div class="section-eyebrow reveal">Training &amp; Activities</div>
@@ -1092,6 +1111,7 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </section>
 
 <!-- ── CONTACT ── -->
+
 <section id="contact" class="contact">
   <div class="contact-inner">
     <div class="section-eyebrow reveal" style="justify-content:center">Let's Connect</div>
@@ -1110,7 +1130,8 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
   <p>© 2026</p>
 </footer>
 
-<!-- ── PDF MODAL (Research Poster) ── -->
+<!-- PDF Modal -->
+
 <div class="pdf-modal" id="pdfModal">
   <div class="pdf-modal-inner">
     <div class="pdf-modal-header">
@@ -1127,7 +1148,8 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
   </div>
 </div>
 
-<!-- ── LIGHTBOX (Screenshots) ── -->
+<!-- Lightbox -->
+
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">×</button>
@@ -1139,16 +1161,13 @@ footer p{font-size:12px;color:var(--ink3);letter-spacing:0.06em;text-transform:u
 </div>
 
 <script>
-// ── Hamburger Menu ──
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
   document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
 });
-
 document.querySelectorAll('.mobile-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
@@ -1157,13 +1176,11 @@ document.querySelectorAll('.mobile-link').forEach(link => {
   });
 });
 
-// ── Scroll Reveal ──
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
 }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ── PDF Modal ──
 function openPdfModal() {
   document.getElementById('pdfModal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1176,15 +1193,13 @@ document.getElementById('pdfModal').addEventListener('click', function(e) {
   if(e.target === this) closePdfModal();
 });
 
-// ── Screenshot Lightbox ──
 const screenshots = [
-  { src: 'SmishGuard-poster.pdf#page=2', caption: 'SmishGard — AI Analysis input screen with quick example presets (Bank Alert, Package Delivery, Account Verification)' },
+  { src: 'SmishGuard-poster.pdf#page=2', caption: 'SmishGard — AI Analysis input screen with quick example presets' },
   { src: 'SmishGuard-poster.pdf#page=3', caption: 'SmishGard — Detection results: color-coded verdict, LIME explanation, and VirusTotal URL verification' },
   { src: 'SmishGuard-poster.pdf#page=4', caption: 'SmishGard — Analysis breakdown showing flagged URL and VirusTotal scan results' },
-  { src: 'SmishGuard-poster.pdf#page=5', caption: 'SmishGard — Safety recommendations and do\'s & don\'ts for users' },
+  { src: 'SmishGuard-poster.pdf#page=5', caption: 'SmishGard — Safety recommendations and dos & don\'ts for users' },
 ];
 let currentIdx = 0;
-
 function openLightbox(idx) {
   currentIdx = idx;
   updateLightbox();
@@ -1212,5 +1227,6 @@ document.addEventListener('keydown', e => {
   if(e.key === 'ArrowRight') changeLightbox(1);
 });
 </script>
+
 </body>
 </html>
