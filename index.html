@@ -604,6 +604,44 @@ nav{
 .cert-link:hover{background:var(--a-glow);color:var(--silver);border-color:var(--border3)}
 .cert-link svg{width:10px;height:10px}
 
+/* ── RECOMMENDATIONS ── */
+.recs{background:var(--bg1);padding:9rem 3.5rem}
+.recs-inner{max-width:1160px;margin:0 auto}
+.recs-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:3rem;
+}
+.rec-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:20px;padding:2.5rem;
+  display:flex;flex-direction:column;gap:1.2rem;
+  transition:border-color 0.3s,box-shadow 0.3s;
+  position:relative;overflow:hidden;
+}
+.rec-card::before{
+  content:'\201C';
+  position:absolute;top:-10px;right:24px;
+  font-family:'Playfair Display',serif;
+  font-size:8rem;color:var(--a-dim);line-height:1;
+  pointer-events:none;
+}
+.rec-card:hover{border-color:var(--border3);box-shadow:0 8px 32px rgba(196,168,255,0.07)}
+.rec-quote{
+  font-size:14px;line-height:1.85;color:var(--text2);
+  font-style:italic;flex:1;
+}
+.rec-author{display:flex;align-items:center;gap:14px;margin-top:0.5rem}
+.rec-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--a-dim);border:1px solid var(--border3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--a);
+  flex-shrink:0;
+}
+.rec-info h5{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
+.rec-info p{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.05em}
+.rec-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border2)}
+.rec-course{font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;color:var(--text4)}
+
 /* ── TRAINING ── */
 .training{background:var(--bg);padding:9rem 3.5rem}
 .training-inner{max-width:1160px;margin:0 auto}
@@ -647,6 +685,15 @@ nav{
 .e-icon{font-size:1.5rem;margin-bottom:0.75rem}
 .e-card h5{font-size:13px;font-weight:500;color:var(--text);margin-bottom:5px}
 .e-card p{font-size:12px;color:var(--text3);line-height:1.5}
+.e-cert-link{
+  display:inline-flex;align-items:center;gap:5px;margin-top:10px;
+  font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;
+  color:var(--a2);text-decoration:none;
+  border:1px solid rgba(196,168,255,0.18);background:var(--a-dim);
+  padding:3px 10px;border-radius:var(--radius-pill);transition:all 0.2s;
+}
+.e-cert-link:hover{background:var(--a-glow);color:var(--silver);border-color:var(--border3)}
+.e-cert-link svg{width:10px;height:10px}
 
 /* ── CONTACT ── */
 .contact{
@@ -823,6 +870,7 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#recommendations">Recommendations</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#training">Training</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -833,6 +881,7 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" class="mobile-link">About</a>
   <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#recommendations" class="mobile-link">Recommendations</a>
   <a href="#skills" class="mobile-link">Skills</a>
   <a href="#training" class="mobile-link">Training</a>
   <a href="#contact" class="mobile-link m-cta">Contact</a>
@@ -938,8 +987,59 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <div>
           <h4>Dean's List Achievement</h4>
           <p>SQU College of Sciences — Fall 2024, Spring 2025 &amp; Fall 2025</p>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/academic-excellence.pdf" target="_blank" class="cert-link" style="margin-top:0.6rem;display:inline-flex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Certificate
+          </a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RECOMMENDATIONS ── -->
+<section id="recommendations" class="recs">
+  <div class="recs-inner">
+    <div class="eyebrow reveal">Academic References</div>
+    <h2 class="section-h reveal">What my professors <em>say.</em></h2>
+    <div class="recs-grid reveal-stagger">
+
+      <div class="rec-card">
+        <p class="rec-quote">Athir has been an exceptional student, consistently demonstrating a strong work ethic and passion. She has excellent communication and teaching skills — able to explain difficult concepts clearly — with strong technical knowledge in IT, leadership, teamwork, and professionalism.</p>
+        <div class="rec-author">
+          <div class="rec-avatar">S</div>
+          <div class="rec-info">
+            <h5>Dr. Shadha AlAmri</h5>
+            <p>Assistant Professor · Computer Science, SQU</p>
+          </div>
+        </div>
+        <div class="rec-footer">
+          <span class="rec-course">Computer Networks</span>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-shadha.pdf" target="_blank" class="cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Letter
+          </a>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Ms. Athir's performance has been steadily improving and has reached maturity and excellent performance in recent semesters — ranking 10th out of 54 students in Distributed Systems with an A grade. She is a hardworking and ambitious person.</p>
+        <div class="rec-author">
+          <div class="rec-avatar">K</div>
+          <div class="rec-info">
+            <h5>Prof. Khaled Day</h5>
+            <p>Professor · Computer Science, SQU</p>
+          </div>
+        </div>
+        <div class="rec-footer">
+          <span class="rec-course">Data Structures · Networks Programming · Distributed Systems</span>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/rec-khaled.pdf" target="_blank" class="cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Letter
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1206,6 +1306,10 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <h3>IT Trainee</h3>
         <h4>Ministry of Education — Al Dhahira, Oman</h4>
         <p>Supported IT infrastructure and network systems. Gained hands-on experience securing network environments and providing technical support to staff.</p>
+        <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/moe-training.pdf" target="_blank" class="cert-link" style="margin-top:1rem;display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
       </div>
       <div class="t-card reveal">
         <div class="t-period">Jun – Aug 2023</div>
@@ -1213,22 +1317,38 @@ footer p{font-size:11px;color:var(--text4);letter-spacing:0.08em;text-transform:
         <h3>Cybersecurity Trainee</h3>
         <h4>Nama Group, Oman</h4>
         <p>Participated in system monitoring and risk assessment across enterprise infrastructure. Supported security practice reviews and technical documentation.</p>
+        <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/nama-training.pdf" target="_blank" class="cert-link" style="margin-top:1rem;display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Certificate
+        </a>
       </div>
       <div class="events-row reveal-stagger">
         <div class="e-card">
           <div class="e-icon">💻</div>
           <h5>Hackathon</h5>
           <p>هاكاثون نسج — Collaborative tech challenge</p>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/hackathon-nasj.pdf" target="_blank" class="e-cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View
+          </a>
         </div>
         <div class="e-card">
           <div class="e-icon">🚀</div>
           <h5>Innovation Challenge</h5>
           <p>تحدي الابتكار الريادي — Entrepreneurial innovation competition</p>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/innovation-challenge.pdf" target="_blank" class="e-cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View
+          </a>
         </div>
         <div class="e-card">
           <div class="e-icon">📊</div>
           <h5>Statistical Forum</h5>
           <p>الملتقى الإحصائي — Academic statistics conference</p>
+          <a href="https://raw.githubusercontent.com/atheer09090-prog/AthirAlAbri/main/statistical-forum.pdf" target="_blank" class="e-cert-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View
+          </a>
         </div>
       </div>
     </div>
